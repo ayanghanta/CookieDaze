@@ -7,6 +7,7 @@ const hpp = require('hpp');
 
 const cakeRouter = require('./routes/cakeRouts');
 const userRouter = require('./routes/userRouts');
+const reviewRouts = require('./routes/reviewRouts');
 const app = express();
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -39,8 +40,10 @@ app.use(
   })
 );
 
+// ROUTES
 app.use('/api/v1/cakes', cakeRouter);
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/reviews', reviewRouts);
 
 // Handeling error
 

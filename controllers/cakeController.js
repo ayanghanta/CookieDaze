@@ -20,7 +20,7 @@ exports.getAllCakes = catchAsync(async function (req, res, next) {
 });
 
 exports.getCake = catchAsync(async function (req, res, next) {
-  const cake = await Cakes.findById(req.params.id);
+  const cake = await Cakes.findById(req.params.id).populate('reviews');
   // if (!cake) return next(new AppError('Id fot found ', 404));
   res.status(200).json({
     ok: true,
