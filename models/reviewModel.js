@@ -18,10 +18,12 @@ const reviewSchema = mongoose.Schema(
     },
     cake: {
       type: mongoose.Schema.ObjectId,
+      required: [true, 'review must be belong to a cake'],
       ref: 'Cake',
     },
     user: {
       type: mongoose.Schema.ObjectId,
+      required: [true, 'review must be belong to a user'],
       ref: 'User',
     },
   },

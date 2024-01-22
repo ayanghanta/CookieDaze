@@ -1,6 +1,7 @@
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const User = require('./../models/userModel');
+const factory = require('./factoryFunction');
 
 const filterObj = function (obj, ...fileds) {
   const filterObj = {};
@@ -9,17 +10,6 @@ const filterObj = function (obj, ...fileds) {
   });
   return filterObj;
 };
-
-exports.getAllUsers = catchAsync(async function (req, res, next) {
-  const users = await User.find();
-  res.status(200).json({
-    ok: true,
-    results: users.length,
-    data: {
-      users,
-    },
-  });
-});
 
 exports.updateMe = catchAsync(async function (req, res, next) {
   if (req.body.password || req.body.passwordConfirm)
@@ -52,3 +42,9 @@ exports.deleteMe = catchAsync(async function (req, res, next) {
     user: null,
   });
 });
+
+exports.getUser = factory.getOne(User);
+exports.getAllUsers = factory.getAll(User);
+// Do NOT UPDATE USER PASSWORD USING THIS ROUT [ONLY FOR ADMIN]
+exports.deleteUser = factory.deleteOne(User);
+exports.updateUser = factory.updateOne(User);

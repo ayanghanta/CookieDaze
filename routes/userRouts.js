@@ -27,4 +27,10 @@ router
     userContoller.getAllUsers
   );
 
+router
+  .route('/:id')
+  .get(userContoller.getUser)
+  .patch(userContoller.updateUser)
+  .delete(userContoller.deleteUser);
+
 module.exports = router;

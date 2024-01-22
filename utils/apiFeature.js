@@ -1,3 +1,5 @@
+const AppError = require('./../utils/appError');
+
 class APIfeature {
   constructor(query, queryString) {
     this.query = query;
@@ -25,6 +27,10 @@ class APIfeature {
   }
   limiting() {
     if (this.queryString.fields) {
+      //to prevent expose user password to client sile [fileds=password]
+      if (this.queryString.fields.split(',').includes('password'))
+        throw new AppError('invalid requrest', 400);
+
       const fields = this.queryString.fields.split(',').join(' ');
       this.query = this.query.select(fields);
     } else {

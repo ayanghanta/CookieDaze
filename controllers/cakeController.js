@@ -1,67 +1,14 @@
 const Cakes = require('./../models/cakeModel');
 const APIfeature = require('./../utils/apiFeature');
 const catchAsync = require('./../utils/catchAsync');
-const AppError = require('./../utils/appError');
+const factory = require('./factoryFunction');
+// const AppError = require('./../utils/appError');
 
-exports.getAllCakes = catchAsync(async function (req, res, next) {
-  const features = new APIfeature(Cakes.find(), req.query)
-    .filtering()
-    .sorting()
-    .limiting()
-    .paginate();
-  const cakes = await features.query;
-  res.status(200).json({
-    ok: true,
-    results: cakes.length,
-    data: {
-      cakes,
-    },
-  });
-});
-
-exports.getCake = catchAsync(async function (req, res, next) {
-  const cake = await Cakes.findById(req.params.id).populate('reviews');
-  // if (!cake) return next(new AppError('Id fot found ', 404));
-  res.status(200).json({
-    ok: true,
-    data: {
-      cake,
-    },
-  });
-});
-
-exports.createCake = catchAsync(async function (req, res, next) {
-  const cake = await Cakes.create(req.body);
-
-  res.status(201).json({
-    ok: true,
-    data: {
-      cake,
-    },
-  });
-});
-
-exports.updateCake = catchAsync(async function (req, res, next) {
-  const updatedCake = await Cakes.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  });
-  res.status(201).json({
-    ok: true,
-    data: {
-      cake: updatedCake,
-    },
-  });
-});
-
-exports.deleteCake = catchAsync(async function (req, res, next) {
-  const cake = await Cakes.findByIdAndDelete(req.params.id);
-  if (!cake) return next(new AppError('Id fot found ', 404));
-  res.status(204).json({
-    ok: true,
-    massage: 'Cake deleted !',
-  });
-});
+exports.getAllCakes = factory.getAll(Cakes);
+exports.getCake = factory.getOne(Cakes, { path: 'reviews' });
+exports.createCake = factory.createOne(Cakes);
+exports.updateCake = factory.updateOne(Cakes);
+exports.deleteCake = factory.deleteOne(Cakes);
 
 // AGGREGATION
 
