@@ -14,13 +14,21 @@ router.route('/flavors').get(cakeController.cakeByFlavor);
 router.route('/categories').get(cakeController.cakeByCategory);
 router
   .route('/')
-  .get(authController.protect, cakeController.getAllCakes)
-  .post(cakeController.createCake);
+  .get(cakeController.getAllCakes)
+  .post(
+    authController.protect,
+    authController.restrictTo('admin', 'restaurant-owner'),
+    cakeController.createCake
+  );
 
 router
   .route('/:id')
   .get(cakeController.getCake)
-  .patch(cakeController.updateCake)
+  .patch(
+    authController.protect,
+    authController.restrictTo('admin', 'restaurant-owner'),
+    cakeController.updateCake
+  )
   .delete(
     authController.protect,
     authController.restrictTo('admin', 'restaurant-owner'),

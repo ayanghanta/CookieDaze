@@ -7,26 +7,22 @@ const router = express.Router();
 
 router.post('/singup', authController.singup);
 router.post('/login', authController.login);
-
 router.post('/forgotpassword', authController.forgotPassword);
 router.patch('/resetPassword/:resetToken', authController.resetPassword);
-router.patch(
-  '/updatePassword',
-  authController.protect,
-  authController.updatePassword
-);
 
-router.patch('/updateMe', authController.protect, userContoller.updateMe);
-router.delete('/deleteMe', authController.protect, userContoller.deleteMe);
+// PROTECT ALL BELOW-ROUTS
+router.use(authController.protect);
 
-router
-  .route('/')
-  .get(
-    authController.protect,
-    authController.restrictTo('admin'),
-    userContoller.getAllUsers
-  );
+router.patch('/updatePassword', authController.updatePassword);
+router.get('/getMe', userContoller.getMe, userContoller.getUser);
 
+router.patch('/updateMe', userContoller.updateMe);
+router.delete('/deleteMe', userContoller.deleteMe);
+
+//  ONLY USE BY ADMIN
+router.use(authController.restrictTo('admin'));
+
+router.route('/').get(userContoller.getAllUsers);
 router
   .route('/:id')
   .get(userContoller.getUser)

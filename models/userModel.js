@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     enum: {
-      values: ['user', 'restaurant owner'],
+      values: ['user', 'restaurant-owner'],
       massage: ' role only either user or restaurant owner',
     },
     default: 'user',

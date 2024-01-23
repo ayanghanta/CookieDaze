@@ -11,6 +11,11 @@ const filterObj = function (obj, ...fileds) {
   return filterObj;
 };
 
+exports.getMe = (req, res, next) => {
+  req.params.id = req.user._id;
+  next();
+};
+
 exports.updateMe = catchAsync(async function (req, res, next) {
   if (req.body.password || req.body.passwordConfirm)
     return next(
