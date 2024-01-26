@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const CakeSchema = new mongoose.Schema(
   {
@@ -58,6 +59,9 @@ const CakeSchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    slug: {
+      type: String,
+    },
   },
   {
     toJSON: { virtuals: true },
@@ -71,6 +75,11 @@ CakeSchema.virtual('reviews', {
   localField: '_id',
 });
 
+CakeSchema.pre('save', function (next) {
+  // console.log(this);
+  this.slug = slugify(this.name, { lower: true });
+  next();
+});
 const Cakes = mongoose.model('Cakes', CakeSchema);
 
 module.exports = Cakes;

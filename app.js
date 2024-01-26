@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -8,9 +9,17 @@ const hpp = require('hpp');
 const cakeRouter = require('./routes/cakeRouts');
 const userRouter = require('./routes/userRouts');
 const reviewRouts = require('./routes/reviewRouts');
-const app = express();
+const viewRouter = require('./routes/viewRouts');
+
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
+
+const app = express();
+
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+// SERVING STATIC FILES
+app.use(express.static(path.join(__dirname, 'public')));
 
 //GLOBAL MIDDLE WARES
 if (process.env.NODE_ENV == 'development') app.use(morgan('dev'));
@@ -41,6 +50,8 @@ app.use(
 );
 
 // ROUTES
+
+app.use('/', viewRouter);
 app.use('/api/v1/cakes', cakeRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouts);
