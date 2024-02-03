@@ -77,6 +77,18 @@ exports.login = catchAsync(async function (req, res, next) {
   createTokenAndSend(currentUser, 200, res);
 });
 
+exports.logout = (req, res, next) => {
+  res.cookie('jwt', 'loggedOut', {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+
+  res.status(200).json({
+    status: 'success',
+    ok: true,
+  });
+};
+
 exports.protect = catchAsync(async function (req, res, next) {
   // 1)get the token form the request header
   let token = '';
@@ -86,6 +98,9 @@ exports.protect = catchAsync(async function (req, res, next) {
   ) {
     token = req.headers.authorization.split(' ')[1];
   }
+
+  if (req.cookies.jwt) token = req.cookies.jwt;
+
   if (!token) return next(new AppError('pleace login to access', 401));
   // 2) validate the token
   const decodeToken = await promisify(jwt.verify)(
@@ -115,6 +130,32 @@ exports.protect = catchAsync(async function (req, res, next) {
   req.user = user;
   next();
 });
+
+exports.isLoggededIn = async function (req, res, next) {
+  if (!req.cookies.jwt) return next();
+  try {
+    const token = req.cookies.jwt;
+
+    if (!token) return next();
+    // 2) validate the token
+    const decodeToken = await promisify(jwt.verify)(
+      token,
+      process.env.JWT_SECRET
+    );
+    // 3) check the user is still exist or  not
+    const user = await User.findOne({ _id: decodeToken.id });
+
+    if (!user) return next();
+    // 4) check if the user is changed his password or not
+    if (user.passwordChangeAfter(decodeToken.iat)) return next();
+
+    // THERE IS A LOGGED IN USER
+    res.locals.user = user;
+    next();
+  } catch (err) {
+    return next();
+  }
+};
 
 exports.restrictTo = function (...roles) {
   return function (req, res, next) {

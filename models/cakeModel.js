@@ -20,6 +20,7 @@ const CakeSchema = new mongoose.Schema(
     ratingAvarage: {
       type: Number,
       default: 4,
+      set: (val) => Math.round(val * 10) / 10,
     },
     ratingQuantity: {
       type: Number,

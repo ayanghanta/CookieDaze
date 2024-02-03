@@ -30,6 +30,7 @@ header {
   display: flex;
   gap: 2.4rem;
   align-items: center;
+  justify-content: end;
 }
 .mobile-navs {
   display: none;
@@ -95,7 +96,32 @@ header {
   width: 3.6rem;
   cursor: pointer;
 }
+.nav-user-photo {
+  width: 5rem;
+  display: block;
+  border-radius: 50%;
+  border: 1px solid #ef233c;
+}
+.nav-accont-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #600e18;
+}
 
+.nav-user-name {
+  font-weight: 500;
+  font-size: 1.9rem;
+  color: #d72036;
+}
+.nav-user-name::first-letter {
+  text-transform: uppercase;
+}
+.btn-logout {
+  color: #78121e;
+  cursor: pointer;
+  font-weight: 400 !important;
+}
 /* #### style for: HERO SECTION #### */
 /* ######################### */
 .hero-section {
@@ -547,7 +573,7 @@ input {
   padding: 3.2rem 2.4rem;
   transform: all 0.5s;
   z-index: 1001;
-  max-width: 65rem;
+  max-width: 85rem;
   border-radius: 0.4rem;
   display: flex;
   flex-direction: column;
@@ -604,15 +630,19 @@ input {
   height: 3.2rem;
   width: 3.2rem;
   color: #480a12;
+  fill: #480a12;
   position: absolute;
   top: 0.5rem;
   right: 0.2rem;
   cursor: pointer;
 }
 .modal-div {
-  display: flex;
-  gap: 2rem;
+  /* display: flex;
+  gap: 2rem; */
   margin-bottom: 1.2rem;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  column-gap: 1.2rem;
 }
 .login-text,
 .singup-text {
@@ -750,7 +780,7 @@ input {
   border: 0.5rem solid #f57b8a;
   cursor: pointer;
   transition: all 0.4s;
-  border-radius: 0.4rem;
+  border-radius: 1.6rem;
 }
 .cake-image:hover {
   border: 0.5rem solid #f13950;
@@ -781,7 +811,7 @@ input {
 }
 .cake-name {
   color: #78121e;
-  font-size: 2.4rem;
+  font-size: 3.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }

@@ -1,6 +1,6 @@
 header.header
   .main-logo-box
-    a(href='#')
+    a(href='/')
       img.main-logo(src='/img/logos/main-logo.png' alt='logo of CookieDaze')
   nav.main-nav
     ul.nav-items
@@ -12,8 +12,16 @@ header.header
         a.nav-link(href='#catagoryFlavour')  Our Cakes 
       li.nav-item
         a.nav-link(href='#Gallery')  Gallery
-      li.nav-item.sing-up-btn-cont
-        a.btn.btn-fill.btn-nav-sing-up(href='#') Sing-up
+      if user 
+        li.nav-item
+          span.nav-link.btn-logout  Logout
+        li.nav-item.account-item
+          a.nav-accont-btn(href="#") 
+            img.nav-user-photo(src=`/img/users/${user.photo}`, alt=`user photo of ${user.name}`) 
+            span.nav-user-name= `${user.name.split(' ')[0]}`
+      else
+        li.nav-item.sing-up-btn-cont
+          a.btn.btn-fill.btn-nav-sing-up(href='#') Sing-up
   .mobile-navs
     svg.mobile-nanIcon.hamBerger
       use(xlink:href="/img/ssg.svg#hamBerger")

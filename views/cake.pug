@@ -6,7 +6,28 @@ mixin cakeStat(title,value)
     span.stat-value= value
 
 
-block content 
+mixin reviewCard(review)
+  .review_card
+    .review-header
+      img.review_user-img(src=`/img/users/${review.user.photo}` alt=`user photo of ${review.user.name}`)
+      .review-header--content
+        p.review-user-name= review.user.name
+        .stars
+          svg.rating-star
+            use(xlink:href='/img/ssg.svg#star')
+          svg.rating-star
+            use(xlink:href='/img/ssg.svg#star')
+          svg.rating-star
+            use(xlink:href='/img/ssg.svg#star')
+          svg.rating-star
+            use(xlink:href='/img/ssg.svg#star')
+          svg.rating-star.star-inactive
+            use(xlink:href='/img/ssg.svg#star')
+    p.review-text= review.review
+
+
+
+block append content 
   main.main.main-ortherPage
     section.cake-showcase
       .cake-info.container
@@ -71,23 +92,6 @@ block content
     section.cake-review-section
       h2.heading-secondary.container Reviews
       .container.review_cards
-        .review_card
-          .review-header
-            img.review_user-img(src='/img/users/Ava J.jpg' alt='user photo')
-            .review-header--content
-              p.review-user-name Ayan Ghanta
-              .stars
-                svg.rating-star
-                  use(xlink:href='/img/ssg.svg#star')
-                svg.rating-star
-                  use(xlink:href='/img/ssg.svg#star')
-                svg.rating-star
-                  use(xlink:href='/img/ssg.svg#star')
-                svg.rating-star
-                  use(xlink:href='/img/ssg.svg#star')
-                svg.rating-star.star-inactive
-                  use(xlink:href='/img/ssg.svg#star')
-          p.review-text
-            | Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam
-            | quo suscipit obcaecati iusto ab veritatis, facere ipsa illum,
-            | inventore fugiat velit. Reiciendis, maiores?
+        each review in cake.reviews 
+          +reviewCard(review)
+        //- +reviewCard()

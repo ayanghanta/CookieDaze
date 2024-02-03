@@ -6,7 +6,7 @@ html(lang="en")
     meta(name='description' content='CookieDaze offers delectable and healthy cakes for all occasions. Indulge in flavorful delights crafted for kids, health-conscious individuals, and special celebrations. Explore our special offers and testimonials.')
     link(rel="shortcut icon", href="/img/fab-icon.png", type="image/x-icon")
     link(rel='apple-touch-icon' href='/img/logos/apple-touch.png')
-    link(rel='manifest' href='/manifest.webmanifest')
+    link(rel='manifest' href='/img/manifest.webmanifest')
     title CookieDaze | Wholesome Cake Joy
     link(rel='preconnect' href='https://fonts.googleapis.com')
     link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
@@ -14,13 +14,15 @@ html(lang="en")
     link(rel='stylesheet' href='/css/genaral.css')
     link(rel='stylesheet' href='/css/style.css')
     link(rel='stylesheet' href='/css/media.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.js' integrity='sha512-BK9PHgiHWfibD1gZHjigMVxh6wMAFhiGa8FV3mYdGIHO7QJWlP/Uy2kTw3ykOLd9OtSJyPSqPNKIRiSmAFw6UA==' crossorigin='anonymous' referrerpolicy='no-referrer' defer)
+    script(src="/js/mainSecipt.js" defer)
+    script(src="/js/login.js" defer) 
+    script(src="/js/logout.js" defer) 
   body 
     include _header
 
     block content
-      h1 CONTENT PLACEHOLDER
+      include _singupLogin
 
     include _footer
-
-    script(src="/js/mainSecipt.js")
-    script(src="/js/accounts.js")
+      .overlay.hidden

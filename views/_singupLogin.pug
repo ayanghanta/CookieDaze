@@ -1,0 +1,34 @@
+// Modal
+.modal.hidden
+  //- ion-icon.modal-close-btn(name='close-outline')
+  svg.modal-close-btn
+    use(xlink:href='/img/ssg.svg#cross')
+  p.title-modal Join us to taste happiness !
+  form.modal-singUp-form.modal-form.hide
+    .modal-div
+      label.modal-label(for='name') First name
+      input#name.modal-inp(type='text' name='First-name')
+    .modal-div
+      label.modal-label(for='singup-email') Your email
+      input#singup-email.modal-inp(type='email' name='Email')
+    .modal-div
+      label.modal-label(for='password') Password
+      input#password.modal-inp(type='password' name='password')
+    .modal-div
+      label.modal-label(for='passwordConfirm') Confirm Password
+      input#passwordConfirm.modal-inp(type='password' name='passwordConfirm')
+    button.btn-modal-SignUp(type='submit') Sign up
+  form.form-login.modal-form
+    .modal-div
+      label.modal-label(for='login-email') Email
+      input#login-email.modal-inp.username-inp(type='email' name='email')
+    .modal-div
+      label.modal-label(for='login-password') Password 
+      input#login-password.modal-inp.password-inp(type='password' name='Password')
+    button.btn-modal-Login(type='submit') Login
+  p.login-text.hide
+    | Already have an account ? 
+    span.login-text-btn Login
+  p.singup-text
+    | Create a new account ? 
+    span.singUp-text-btn Sing up

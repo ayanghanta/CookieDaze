@@ -33,68 +33,69 @@ Array.from(allNavItem).forEach((item) => {
 ////////////////////////////////////////////////////////////
 // Sticky navigation
 
-// const obs = new IntersectionObserver(
-//   function (entries) {
-//     const ent = entries[0];
+const obs = new IntersectionObserver(
+  function (entries) {
+    const ent = entries[0];
 
-//     if (ent.isIntersecting === false) {
-//       document.body.classList.add("sticky");
-//     }
+    if (ent.isIntersecting === false) {
+      document.body.classList.add('sticky');
+    }
 
-//     if (ent.isIntersecting === true) {
-//       document.body.classList.remove("sticky");
-//     }
-//   },
-//   {
-//     // In the viewport
-//     root: null,
-//     threshold: 0,
-//     rootMargin: "-80px",
-//   }
-// );
-// obs.observe(sectionHeroEl);
+    if (ent.isIntersecting === true) {
+      document.body.classList.remove('sticky');
+    }
+  },
+  {
+    // In the viewport
+    root: null,
+    threshold: 0,
+    rootMargin: '-80px',
+  }
+);
+if (sectionHeroEl) {
+  obs.observe(sectionHeroEl);
+}
 
-//
+const closeModal = function () {
+  modalEl.classList.add('hidden');
+  overLay.classList.add('hidden');
+};
 
-// const closeModal = function () {
-//   modalEl.classList.add("hidden");
-//   overLay.classList.add("hidden");
-// };
+const openLoginDisplay = function () {
+  singupFormModal.classList.add('hide');
+  loginFormModal.classList.remove('hide');
+  modalLoginText.classList.add('hide');
+  modalSingUpText.classList.remove('hide');
+};
 
-// const openLoginDisplay = function () {
-//   singupFormModal.classList.add("hide");
-//   loginFormModal.classList.remove("hide");
-//   modalLoginText.classList.add("hide");
-//   modalSingUpText.classList.remove("hide");
-// };
+const openSignUpDisplay = function () {
+  singupFormModal.classList.remove('hide');
+  loginFormModal.classList.add('hide');
+  modalLoginText.classList.remove('hide');
+  modalSingUpText.classList.add('hide');
+};
 
-// const openSignUpDisplay = function () {
-//   singupFormModal.classList.remove("hide");
-//   loginFormModal.classList.add("hide");
-//   modalLoginText.classList.remove("hide");
-//   modalSingUpText.classList.add("hide");
-// };
+if (singUpBtn) {
+  singUpBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    modalEl.classList.remove('hidden');
+    overLay.classList.remove('hidden');
+  });
+}
+modalCloseBtn.addEventListener('click', function () {
+  closeModal();
+  openSignUpDisplay();
+});
+overLay.addEventListener('click', function () {
+  closeModal();
+  openSignUpDisplay();
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modalEl.classList.contains('hidden')) {
+    closeModal();
+    openSignUpDisplay();
+  }
+});
 
-//
-// singUpBtn.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   modalEl.classList.remove("hidden");
-//   overLay.classList.remove("hidden");
-// });
-// modalCloseBtn.addEventListener("click", function () {
-//   closeModal();
-//   openSignUpDisplay();
-// });
-// overLay.addEventListener("click", function () {
-//   closeModal();
-//   openSignUpDisplay();
-// });
-// document.addEventListener("keydown", function (e) {
-//   if (e.key === "Escape" && !modalEl.classList.contains("hidden")) {
-//     closeModal();
-//     openSignUpDisplay();
-//   }
-// });
-
-// loginTextBtn.addEventListener("click", openLoginDisplay);
-// singupTextBtn.addEventListener("click", openSignUpDisplay);
+loginTextBtn.addEventListener('click', openLoginDisplay);
+singupTextBtn.addEventListener('click', openSignUpDisplay);
