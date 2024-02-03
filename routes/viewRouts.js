@@ -6,4 +6,6 @@ const viewsController = require('./../controllers/viewsController');
 
 router.route('/').get(viewsController.getOverview);
 
+router.route('/cake/:cakeSlug').get(viewsController.getCake);
+
 module.exports = router;

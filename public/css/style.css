@@ -22,6 +22,9 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+.main-ortherPage {
+  margin-top: 9.6rem;
+}
 .nav-items {
   list-style: none;
   display: flex;
@@ -721,4 +724,235 @@ input {
 }
 .total-price {
   margin-left: 2.4rem;
+}
+
+/* ################ */
+/* Style For Cake Page */
+
+.cake-info {
+  display: grid;
+  grid-template-columns: 20% 40% 40%;
+}
+.cake-showcase {
+  background-color: #fde9ec;
+  padding: 6.4rem 0 9.6rem 0;
+}
+
+.cake-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cake-image {
+  display: block;
+  width: 60%;
+  margin-bottom: 1rem;
+  border: 0.5rem solid #f57b8a;
+  cursor: pointer;
+  transition: all 0.4s;
+  border-radius: 0.4rem;
+}
+.cake-image:hover {
+  border: 0.5rem solid #f13950;
+}
+.cake-main-img-box {
+  /* background-color: #21990f; */
+  /* display: flex; */
+  justify-content: center;
+}
+.cake-image-big {
+  display: block;
+  width: 100%;
+  border-radius: 0.8rem;
+}
+.description-heading {
+  font-size: 1.6rem;
+  color: #222;
+  margin-left: 2rem;
+  font-weight: 600;
+}
+.cake-description-text {
+  margin-top: 2.4rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+.cake-stats {
+  padding-left: 2rem;
+}
+.cake-name {
+  color: #78121e;
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.form_addToCart {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1.2rem;
+  row-gap: 1.2rem;
+  margin-bottom: 3.2rem;
+}
+.form_addToCart label {
+  color: #444;
+  font-weight: 400;
+}
+.form_addToCart .input {
+  font-size: 1.8rem;
+  padding: 0.8rem 1.2rem;
+  font-family: inherit;
+  background-color: #f9a7b1;
+  color: #78121e;
+  border-radius: 0.4rem;
+}
+.form_addToCart .input::placeholder {
+  color: #fde2e2;
+}
+.cake-showcase .button {
+  all: unset;
+  display: inline-block;
+  font-size: 1.6rem;
+  font-family: inherit;
+  padding: 1.2rem;
+  color: #fff;
+  border-radius: 0.4rem;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.cake-showcase .check-pincode {
+  background-color: #f07930d5;
+}
+.cake-showcase .Add-to-cart {
+  background-color: #ef233c;
+}
+
+.rating-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.rating-avarage-value {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.cake-showcase .rating-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  fill: #fdcc0d;
+}
+.rating-quantity-value {
+  font-size: 1.6rem;
+  margin-left: 1.2rem;
+  color: #666;
+}
+.price-container {
+  margin-bottom: 2.4rem;
+  display: flex;
+  flex-direction: column;
+}
+.pice-value {
+  font-size: 3.2rem;
+  font-weight: 400;
+}
+.tax-text {
+  font-size: 1.2rem;
+  color: #777;
+}
+.stat-heading {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #999;
+  margin-bottom: 1rem;
+}
+.stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+}
+.stat-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #222;
+}
+.stat-value {
+  color: #222;
+}
+.stat-value::first-letter {
+  text-transform: uppercase;
+}
+.stat-container {
+  margin-top: 3.2rem;
+}
+.instuction-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-left: 1.2rem;
+}
+.intruc-item {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+/* review section */
+.cake-review-section {
+  padding: 6.4rem 0 4.8rem 0;
+}
+.review_cards {
+  padding: 1.2rem 6.4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2.4rem;
+  row-gap: 2.4rem;
+  max-height: 40rem;
+  overflow-y: scroll;
+}
+.review_card {
+  padding: 2.4rem 1.2rem;
+  border-radius: 0.6rem;
+  border: 1px solid #f46577;
+  /* width: 50rem; */
+  /* background-color: rgb(243, 172, 172); */
+}
+.review-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.review_user-img {
+  display: block;
+  align-self: flex-start;
+  width: 15%;
+  border-radius: 50%;
+}
+.review-header--content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.review-user-name {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #78121e;
+}
+.stars {
+  display: flex;
+  gap: 0.6rem;
+}
+.rating-star {
+  fill: #bf1c30;
+  height: 2.4rem;
+  width: 2.4rem;
+}
+.star-inactive {
+  fill: #f5dfdf !important;
+}
+.review-text {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: #444;
 }

@@ -334,3 +334,95 @@
     font-size: 2rem;
   }
 }
+
+/* ------------------*----------------- */
+
+/* Media Query for Cake page */
+
+/* **** Media quary for(800px) **** */
+
+@media (max-width: 50em) {
+  .cake-info {
+    grid-template-columns: 15% 50% 35%;
+  }
+  .cake-image {
+    width: 80%;
+  }
+  .form_addToCart {
+    grid-template-columns: 1fr;
+    row-gap: 2.4rem;
+  }
+  .form_addToCart .check-pincode {
+    grid-row: 2/3;
+  }
+  .review_cards {
+    padding: 1.2rem 4.8rem;
+  }
+}
+
+/* **** Media quary for(656px) **** */
+
+@media (max-width: 41em) {
+  .cake-info {
+    grid-template-columns: 60% 40%;
+  }
+  .cake-images {
+    flex-direction: row;
+    grid-column: 1 / span 2;
+    gap: 1.2rem;
+    justify-content: space-around;
+    margin-bottom: 2.4rem;
+  }
+  .cake-image {
+    width: 20%;
+  }
+  .review_cards {
+    padding: 1.2rem 3.2rem;
+  }
+}
+/* **** Media quary for(560px) **** */
+
+@media (max-width: 35em) {
+  .cake-info {
+    grid-template-columns: 1fr;
+  }
+  .cake-images {
+    grid-column: 1 / span 1;
+  }
+  .cake-main-img-box,
+  .cake-stats {
+    width: 80%;
+    justify-self: center;
+  }
+  .cake-description-text {
+    padding: 0 0.4rem;
+    margin-top: 1.2rem;
+    margin-bottom: 2.4rem;
+  }
+  .form_addToCart {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .review_cards {
+    padding: 1.2rem 6.4rem;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* **** Media quary for(480px) **** */
+
+@media (max-width: 30em) {
+  .cake-main-img-box,
+  .cake-stats {
+    width: 95%;
+  }
+}
+
+/* **** Media quary for(400px) **** */
+
+@media (max-width: 25em) {
+  .cake-main-img-box,
+  .cake-stats {
+    width: 100%;
+  }
+}
