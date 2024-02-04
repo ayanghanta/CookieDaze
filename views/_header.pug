@@ -16,7 +16,7 @@ header.header
         li.nav-item
           span.nav-link.btn-logout  Logout
         li.nav-item.account-item
-          a.nav-accont-btn(href="#") 
+          a.nav-accont-btn(href="/me") 
             img.nav-user-photo(src=`/img/users/${user.photo}`, alt=`user photo of ${user.name}`) 
             span.nav-user-name= `${user.name.split(' ')[0]}`
       else

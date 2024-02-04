@@ -426,3 +426,65 @@
     width: 100%;
   }
 }
+
+/* ------------------*----------------- */
+
+/* Media Query for Account page */
+/* **** Media quary for(672px) **** */
+
+@media (max-width: 42em) {
+  .account-details-display {
+    padding: 2.4rem;
+  }
+}
+/* **** Media quary for(640px) **** */
+
+@media (max-width: 42em) {
+  .option-title {
+    display: none;
+  }
+  .accont-section-container {
+    grid-template-columns: 20% 80%;
+  }
+}
+/* **** Media quary for(480px) **** */
+
+@media (max-width: 30em) {
+  .accont-section-container {
+    grid-template-columns: 1fr;
+  }
+  .accounts-options {
+    flex-direction: row;
+  }
+  /* .option-select {
+    border-left: none;
+    fill: #fff3f3;
+  } */
+  .account-details-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+  .account-form-img-container {
+    /* grid-column: 1/-1; */
+    grid-row: 3 / span 1;
+    /* grid-row: 1 / span 2; */
+  }
+  .account-form-btn-container {
+    align-self: flex-end;
+  }
+  .form-account-password-change {
+    width: 100%;
+    padding-left: 1.2rem;
+  }
+  .sidebar {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+  }
+  .account-details-display {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+  }
+}

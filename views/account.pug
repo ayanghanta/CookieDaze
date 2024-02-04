@@ -1,0 +1,47 @@
+extends base
+
+block append content 
+  main.main.main-ortherPage
+    section.account-section
+      .container
+        .accont-section-container
+          .sidebar
+            ul.accounts-options
+              li.option.option-select
+                svg.account-icons
+                  use(xlink:href='img/ssg.svg#gear')
+                p.option-title Account settings
+              li.option
+                svg.account-icons
+                  use(xlink:href='img/ssg.svg#box')
+                p.option-title Your orders
+          .account-details-display
+            h2.heading-secondary Your Account settings
+            form.account-details-form
+              .account-form-container
+                label(for='account-name') Name
+                input#account-name.account_inp(type='text' name='name' value=`${user.name}` spellcheck='false')
+              .account-form-container
+                label(for='account-email') Email
+                input#account-email.account_inp(type='email' name='email' value=`${user.email}`)
+              .account-form-img-container
+                img.account-profile-img(src=`/img/users/${user.photo}` alt=`user photo of ${user.name}`)
+                input#profile-photo.inp_profile_pic(type='file' name='photo')
+                label.label-photo-choose(for='profile-photo') Change photo
+              .account-form-btn-container
+                button.account-btn-save-change(type='submit')
+                  | Save Changes
+            h2.heading-secondary Password Change
+            form.form-account-password-change
+              .account-form-container
+                label(for='account-current_password') Current password
+                input#account-current_password.account_inp(type='password' name='current_password' placeholder='••••••••' minlength='8')
+              .account-form-container
+                label(for='account-new_password') New password
+                input#account-new_password.account_inp(type='password' name='new_password' placeholder='••••••••' minlength='8')
+              .account-form-container
+                label(for='account-new_confirm_password') Confirm password
+                input#account-new_confirm_password.account_inp(type='password' name='new_confirm_password' placeholder='••••••••' minlength='8')
+              .account-password-form-btn-container
+                button.account-btn-save-change(type='submit')
+                  | Save Password

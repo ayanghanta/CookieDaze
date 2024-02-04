@@ -5,6 +5,7 @@ const logout = async () => {
     const res = await axios.get('http://127.0.0.1:3000/api/v1/users/logout');
     // reload the page
     location.reload(true);
+    location.assign('/');
   } catch (err) {
     console.error(err);
   }

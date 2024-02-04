@@ -4,10 +4,14 @@ const viewsController = require('./../controllers/viewsController');
 
 const router = express.Router();
 
-router.use(authController.isLoggededIn);
+router.get('/', authController.isLoggededIn, viewsController.getOverview);
 
-router.route('/').get(viewsController.getOverview);
+router.get(
+  '/cake/:cakeSlug',
+  authController.isLoggededIn,
+  viewsController.getCake
+);
 
-router.route('/cake/:cakeSlug').get(viewsController.getCake);
+router.get('/me', authController.protect, viewsController.getAccount);
 
 module.exports = router;

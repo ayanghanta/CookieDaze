@@ -777,13 +777,13 @@ input {
   display: block;
   width: 60%;
   margin-bottom: 1rem;
-  border: 0.5rem solid #f57b8a;
+  border: 0.2rem solid #f57b8a;
   cursor: pointer;
   transition: all 0.4s;
-  border-radius: 1.6rem;
+  border-radius: 0.8rem;
 }
 .cake-image:hover {
-  border: 0.5rem solid #f13950;
+  border: 0.2rem solid #f13950;
 }
 .cake-main-img-box {
   /* background-color: #21990f; */
@@ -985,4 +985,163 @@ input {
   font-size: 1.4rem;
   line-height: 1.4;
   color: #444;
+}
+
+/* ################ */
+/* Style For Account Page */
+.account-section {
+  padding: 9.6rem 0;
+  background-color: #d9d9d9;
+}
+.accont-section-container {
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.sidebar {
+  background-color: #f24f63;
+  border-bottom-left-radius: 0.8rem;
+  border-top-left-radius: 0.8rem;
+  padding: 1.6rem 0;
+}
+.accounts-options {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.option {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  cursor: pointer;
+  color: #444;
+  padding-left: 1.2rem;
+  transition: all 0.3s;
+}
+.option:hover {
+  border-left: 4px solid #fff3f3;
+  /* transform: translateX(4px); */
+}
+.option-select {
+  border-left: 4px solid #fff3f3;
+}
+.account-icons {
+  height: 4.2rem;
+  width: 4.2rem;
+  fill: #444;
+}
+.option-title {
+  font-size: 2rem;
+}
+
+.account-details-display {
+  background-color: #fff;
+  border-bottom-right-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+  padding: 4.8rem;
+}
+.account-section .heading-secondary {
+  font-weight: 500;
+  font-size: 2.4rem;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #f13950;
+  margin-bottom: 4.8rem;
+  margin-top: 1.2rem;
+  line-height: 1.5;
+}
+.account-details-form {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  padding-bottom: 9.6rem;
+  border-bottom: 1px solid #fabdc5;
+  margin-bottom: 5.2rem;
+}
+.account_inp {
+  background-color: #d9d9d9;
+  padding: 0.8rem 1.6rem;
+  font-size: 2rem;
+  font-weight: 300;
+  font-family: inherit;
+  color: #8f1524;
+  border-bottom: 2px solid transparent;
+  border-radius: 0.4rem;
+  transition: all 0.3s;
+  /* width: 40rem; */
+}
+.account_inp:focus {
+  outline: none;
+  border-bottom: 3px solid #55a630;
+}
+.account_inp:focus:invalid {
+  border-bottom: 3px solid #ff7730;
+}
+.account-details-display label {
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #555;
+}
+.inp_profile_pic {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.account-form-img-container {
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.account-profile-img {
+  width: 60%;
+  display: block;
+  margin: 1.2rem 0 2.4rem 0;
+  border-radius: 50%;
+}
+.account-details-display .label-photo-choose {
+  color: #f7f7f7;
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  background-color: #f24f63;
+  border-radius: 1.8rem;
+}
+.account-form-btn-container {
+  margin-top: 4.8rem;
+  grid-column: 2/-1;
+  justify-self: center;
+}
+.account-btn-save-change {
+  padding: 1.2rem 2.4rem;
+  font-family: inherit;
+  background-color: #f13950;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.form-account-password-change {
+  padding-left: 4.8rem;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 2.4rem;
+}
+.account-password-form-btn-container {
+  align-self: flex-end;
+  padding-top: 2.4rem;
 }
