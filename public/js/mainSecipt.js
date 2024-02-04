@@ -57,6 +57,9 @@ if (sectionHeroEl) {
 }
 
 const closeModal = function () {
+  // document.getElementById("myForm").reset();
+  document.querySelector('.modal-singUp-form').reset();
+  document.querySelector('.form-login').reset();
   modalEl.classList.add('hidden');
   overLay.classList.add('hidden');
 };
@@ -84,16 +87,16 @@ if (singUpBtn) {
 }
 modalCloseBtn.addEventListener('click', function () {
   closeModal();
-  openSignUpDisplay();
+  openLoginDisplay();
 });
 overLay.addEventListener('click', function () {
   closeModal();
-  openSignUpDisplay();
+  openLoginDisplay();
 });
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape' && !modalEl.classList.contains('hidden')) {
     closeModal();
-    openSignUpDisplay();
+    openLoginDisplay();
   }
 });
 

@@ -7,7 +7,7 @@ const logout = async () => {
     location.reload(true);
     location.assign('/');
   } catch (err) {
-    console.error(err);
+    showAlert(err.response.data.message, 'error');
   }
 };
 

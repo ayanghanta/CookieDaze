@@ -16,12 +16,12 @@ const login = async (email, password) => {
     closeModal();
     clearLoginForm();
     // console.log(res);
+    showAlert('Login successfull', 'success');
     window.setTimeout(() => {
       location.reload(true);
     }, 1500);
   } catch (err) {
-    alert(`${err.response.data.message} ⚠️`);
-    console.log(err.response.data.message);
+    showAlert(err.response.data.message, 'error');
   }
 };
 
