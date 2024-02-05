@@ -24,9 +24,14 @@ const updateUserData = async function (type, updateData) {
 if (userDataform) {
   userDataform.addEventListener('submit', (e) => {
     e.preventDefault();
-    const name = document.getElementById('account-name').value;
-    const email = document.getElementById('account-email').value;
-    updateUserData('data', { name, email });
+
+    const form = new FormData();
+
+    form.append('name', document.getElementById('account-name').value);
+    form.append('email', document.getElementById('account-email').value);
+    form.append('photo', document.getElementById('profile-photo').files[0]);
+
+    updateUserData('data', form);
   });
 }
 

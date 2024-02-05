@@ -33,7 +33,7 @@ block append content
                 input#account-email.account_inp(type='email' name='email' value=`${user.email}`)
               .account-form-img-container
                 img.account-profile-img(src=`/img/users/${user.photo}` alt=`user photo of ${user.name}`)
-                input#profile-photo.inp_profile_pic(type='file' name='photo')
+                input#profile-photo.inp_profile_pic(type='file' accept='image/*' name='photo')
                 label.label-photo-choose(for='profile-photo') Change photo
               .account-form-btn-container
                 button.account-btn-save-change(type='submit')

@@ -16,12 +16,6 @@ mixin reviewCard(review)
           each rate in [1,2,3,4,5]
             svg.rating-star(class=`star-${review.rating>=rate?'active':'inactive'}`)
               use(xlink:href='/img/ssg.svg#star')
-          //- svg.rating-star
-          //-   use(xlink:href='/img/ssg.svg#star')
-          //- svg.rating-star
-          //-   use(xlink:href='/img/ssg.svg#star')
-          //- svg.rating-star.star-inactive
-          //-   use(xlink:href='/img/ssg.svg#star')
     p.review-text= review.review
 
 
