@@ -107,19 +107,19 @@ a:active {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  padding: 2.4rem 3.2rem;
+  padding: 2.4rem 5.2rem;
   z-index: 9999;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 400;
   color: #fff;
   border-bottom-right-radius: 0.4rem;
   border-bottom-left-radius: 0.4rem;
 }
 .alert_window--success {
-  background-color: #2dc653;
+  background-color: #29bf12;
 }
 .alert_window--error {
-  background-color: #f48c06;
+  background-color: #f35b04;
 }
 
 /* headings */
