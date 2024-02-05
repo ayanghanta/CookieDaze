@@ -974,9 +974,11 @@ input {
   gap: 0.6rem;
 }
 .rating-star {
-  fill: #bf1c30;
   height: 2.4rem;
   width: 2.4rem;
+}
+.star-active {
+  fill: #bf1c30;
 }
 .star-inactive {
   fill: #f5dfdf !important;
@@ -1023,8 +1025,8 @@ input {
   transition: all 0.3s;
 }
 .option:hover {
-  border-left: 4px solid #fff3f3;
-  /* transform: translateX(4px); */
+  /* border-left: 4px solid #fff3f3; */
+  transform: translateX(8px);
 }
 .option-select {
   border-left: 4px solid #fff3f3;
