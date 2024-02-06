@@ -101,7 +101,7 @@ block append content
         .grid.grid--4-col.all-flavour-carts
           //- Flavour cart -1
           each cake in cakes
-            a.flavour-cart.cake-card-link(href=`/cake/${cake.slug}`)
+            .flavour-cart
               img.flavour-cake-img(src=`img/falvoured-cake/${cake.coverImage}` alt=`image of a ${cake.name} form our shop`)
               .cake-title-box
                 .tag-outline.tag-vegB
@@ -117,7 +117,7 @@ block append content
                     use(xlink:href='img/ssg.svg#star')
                   // <ion-icon name="star" class="rating-icon"></ion-icon>
                 .numberOfPeole=  `(${cake.ratingQuantity})`
-                button.add-to-cart Add &plus;
+                a.add-to-cart.cake-card-link(href=`/cake/${cake.slug}`) Cake Details
         .center-text
           span.all-cake-btn See all cakes &rarr;
     section.section-special

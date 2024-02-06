@@ -101,6 +101,7 @@ header {
   display: block;
   border-radius: 50%;
   border: 1px solid #ef233c;
+  font-size: 1.2rem;
 }
 .nav-accont-btn {
   display: flex;
@@ -303,6 +304,7 @@ header {
 .RAI {
   display: flex;
   align-items: center;
+  gap: 0.6rem;
 }
 .rating-icon {
   color: #dfbf0a;
@@ -341,7 +343,7 @@ header {
   border: none;
   font-family: inherit;
   padding: 0.8rem 1.6rem;
-  background-color: #29bf12;
+  background-color: #3fa34d;
   font-size: 1.6rem;
   color: #fff;
   margin-right: 2.2rem;
@@ -351,7 +353,7 @@ header {
   transition: all 0.3s;
 }
 .add-to-cart:hover {
-  background-color: #21990f;
+  background-color: #2c7236;
 }
 /* #### style for: by price CATAGORY SECTION #### */
 /* ######################### */
@@ -681,79 +683,6 @@ input {
   height: 3.2rem;
   width: 3.2rem;
   color: #600e18;
-}
-
-/* style for cart display */
-.carts-item-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #fff;
-  width: 50%;
-  min-height: 100vh;
-  padding: 2.4rem 3.2rem 9.6rem 2.4rem;
-  /* background-color: rgba(255, 255, 255, 0.9); */
-  background-color: rgb(253, 233, 236, 0.9);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transform: translateX(100%);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s ease-in;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  z-index: 1002;
-}
-.title-shoping {
-  margin-top: 2.4rem;
-  font-size: 3.6rem;
-  text-align: center;
-  color: #ef233c;
-  margin-bottom: 5.2rem;
-}
-.shoping-items {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  padding-bottom: 1.2rem;
-  max-width: 40rem;
-  margin: 0 auto;
-  border-bottom: 1px solid #444;
-  margin-bottom: 1.2rem;
-}
-
-.shoping-item {
-  font-size: 1.6rem;
-  color: #444;
-  gap: 6.4rem;
-}
-.shoping-item-price {
-  margin-left: 3.2rem;
-}
-.totla-price-text {
-  max-width: 40rem;
-  margin: 0 auto;
-  font-size: 1.8rem;
-  color: #444;
-  font-weight: 500;
-}
-.close-cart {
-  height: 3.2rem;
-  width: 3.2rem;
-  color: #600e18;
-  position: absolute;
-  top: 1.2rem;
-  right: 2.4rem;
-  cursor: pointer;
-}
-
-.shop-cart-open .carts-item-container {
-  transform: translateX(0);
-  opacity: 100;
-  visibility: visible;
-}
-.total-price {
-  margin-left: 2.4rem;
 }
 
 /* ################ */
@@ -1116,6 +1045,7 @@ input {
   cursor: pointer;
   background-color: #f24f63;
   border-radius: 1.8rem;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 .account-form-btn-container {
   margin-top: 4.8rem;

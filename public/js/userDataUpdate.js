@@ -29,7 +29,9 @@ if (userDataform) {
 
     form.append('name', document.getElementById('account-name').value);
     form.append('email', document.getElementById('account-email').value);
-    form.append('photo', document.getElementById('profile-photo').files[0]);
+    if (document.getElementById('profile-photo').files[0]) {
+      form.append('photo', document.getElementById('profile-photo').files[0]);
+    }
 
     updateUserData('data', form);
   });

@@ -142,7 +142,7 @@
     gap: 0;
   }
   .cake-rating-box {
-    grid-template-columns: 25% 25% 50%;
+    grid-template-columns: 20% 20% 60%;
   }
 }
 
@@ -201,12 +201,13 @@
     min-height: 90vh;
   }
   .cake-rating-box {
-    grid-template-columns: 40% 40%;
+    grid-template-columns: 30% 50%;
     row-gap: 1.2rem;
   }
   .add-to-cart {
     grid-column: 1 / span 2;
     margin-left: 0rem;
+    margin-right: 0rem;
   }
   .gallery-images {
     grid-template-columns: repeat(3, 1fr);
@@ -271,7 +272,7 @@
     justify-self: center;
   } */
   .cake-rating-box {
-    grid-template-columns: 30% 30%;
+    grid-template-columns: 30% 60%;
   }
 }
 /* **** Media quary for(400px)[for mobile] **** */
