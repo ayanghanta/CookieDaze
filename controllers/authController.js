@@ -17,9 +17,7 @@ const createTokenAndSend = function (user, statusCode, res, sendUser = false) {
   const token = singToken(user._id);
   // sending jwt via Cookie
   const options = {
-    expires: new Date(
-      Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 3600 * 1000
-    ),
+    expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 3600 * 1000),
     secure: true,
     httpOnly: true,
   };
@@ -69,10 +67,7 @@ exports.login = catchAsync(async function (req, res, next) {
     !(await currentUser.checkCorrectPassword(password, currentUser.password))
   )
     return next(
-      new AppError(
-        'Either email or passowrd is wrong, try with correct one',
-        401
-      )
+      new AppError('Either email or passowrd is wrong, try with correct one', 401)
     );
   createTokenAndSend(currentUser, 200, res);
 });
@@ -92,10 +87,7 @@ exports.logout = (req, res, next) => {
 exports.protect = catchAsync(async function (req, res, next) {
   // 1)get the token form the request header
   let token = '';
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith('Bearer')
-  ) {
+  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     token = req.headers.authorization.split(' ')[1];
   }
 
@@ -103,27 +95,18 @@ exports.protect = catchAsync(async function (req, res, next) {
 
   if (!token) return next(new AppError('pleace login to access', 401));
   // 2) validate the token
-  const decodeToken = await promisify(jwt.verify)(
-    token,
-    process.env.JWT_SECRET
-  );
+  const decodeToken = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
   // 3) check the user is still exist or  not
   const user = await User.findOne({ _id: decodeToken.id });
 
   if (!user)
     return next(
-      new AppError(
-        'Token belog to the user is not exist any more , singup pleace',
-        404
-      )
+      new AppError('Token belog to the user is not exist any more , singup pleace', 404)
     );
   // 4) check if the user is changed his password or not
   if (user.passwordChangeAfter(decodeToken.iat))
     return next(
-      new AppError(
-        'user recently change the password . please login again !',
-        401
-      )
+      new AppError('user recently change the password . please login again !', 401)
     );
 
   // get access to the protected rout
@@ -139,10 +122,7 @@ exports.isLoggededIn = async function (req, res, next) {
 
     if (!token) return next();
     // 2) validate the token
-    const decodeToken = await promisify(jwt.verify)(
-      token,
-      process.env.JWT_SECRET
-    );
+    const decodeToken = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
     // 3) check the user is still exist or  not
     const user = await User.findOne({ _id: decodeToken.id });
 
@@ -161,9 +141,7 @@ exports.isLoggededIn = async function (req, res, next) {
 exports.restrictTo = function (...roles) {
   return function (req, res, next) {
     if (!roles.includes(req.user.role)) {
-      return next(
-        new AppError(`you didn't have premission to do this operation`, 403)
-      );
+      return next(new AppError(`you didn't have premission to do this operation`, 403));
     }
     next();
   };
@@ -176,8 +154,7 @@ exports.forgotPassword = catchAsync(async function (req, res, next) {
 
   // 2) check is any user with this emial is exist or not
   const user = await User.findOne({ email });
-  if (!user)
-    return next(new AppError('user with this email is not exist', 404));
+  if (!user) return next(new AppError('user with this email is not exist', 404));
 
   // 3) genarate a reset token
   const resetToken = user.createResetPasswordToken();
@@ -197,10 +174,7 @@ exports.forgotPassword = catchAsync(async function (req, res, next) {
     user.passwordResetTokenAt = undefined;
     await user.save({ validateBeforeSave: false });
     return next(
-      new AppError(
-        'something went wrong to sending email! try again later',
-        500
-      )
+      new AppError('something went wrong to sending email! try again later', 500)
     );
   }
 
@@ -225,9 +199,7 @@ exports.resetPassword = catchAsync(async function (req, res, next) {
   });
 
   if (!user)
-    return next(
-      new AppError('Token is either invalid or expire . try again', 400)
-    );
+    return next(new AppError('Token is either invalid or expire . try again', 400));
 
   // 3) reset the password with the new password and delete reset toke and its time step
   user.password = req.body.password;

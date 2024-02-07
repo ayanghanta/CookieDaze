@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser');
 const cakeRouter = require('./routes/cakeRouts');
 const userRouter = require('./routes/userRouts');
 const reviewRouts = require('./routes/reviewRouts');
+const cartRouter = require('./routes/cartRouts');
 const viewRouter = require('./routes/viewRouts');
 
 const AppError = require('./utils/appError');
@@ -77,6 +78,7 @@ app.use('/', viewRouter);
 app.use('/api/v1/cakes', cakeRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouts);
+app.use('/api/v1/cart', cartRouter);
 
 // Handeling error
 

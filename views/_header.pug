@@ -6,15 +6,19 @@ header.header
     ul.nav-items
       li.nav-item
         a.nav-link(href='/')  Home
-      li.nav-item
-        a.nav-link(href='#')  About Us 
-      li.nav-item
-        a.nav-link(href='#catagoryFlavour')  Our Cakes 
-      li.nav-item
-        a.nav-link(href='#Gallery')  Gallery
+      //- li.nav-item
+      //-   a.nav-link(href='#')  About Us 
+      //- li.nav-item
+      //-   a.nav-link(href='#catagoryFlavour')  Our Cakes 
+      //- li.nav-item
+      //-   a.nav-link(href='#Gallery')  Gallery
       if user 
         li.nav-item
           span.nav-link.btn-logout  Logout
+        li.nav-item
+          a.nav-link(href='/cart')
+            svg.nav-cart-icon
+              use(xlink:href='/img/ssg.svg#cart-shop')
         li.nav-item.account-item
           a.nav-accont-btn(href="/me") 
             img.nav-user-photo(src=`/img/users/${user.photo}`, alt=`user photo of ${user.name}`) 

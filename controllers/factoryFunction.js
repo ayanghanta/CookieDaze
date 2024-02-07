@@ -5,7 +5,6 @@ const APIfeature = require('./../utils/apiFeature');
 exports.createOne = function (Model) {
   return catchAsync(async function (req, res, next) {
     const doc = await Model.create(req.body);
-
     res.status(201).json({
       ok: true,
       data: {

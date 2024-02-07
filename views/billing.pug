@@ -1,0 +1,43 @@
+extends base
+
+block append head 
+  script(src="/js/billing.js" defer) 
+
+block append content 
+  main.main.main-ortherPage
+    section.billing-section
+      .container.item_cards--cart
+        -if(cartItems.length!==0)
+          each item in cartItems 
+            .ordered_prodect_card
+              img.ordered_prodect--img(src=`/img/falvoured-cake/${item.cake.coverImage}` alt=`image of ${item.cake.name}`)
+              .ordered_prodect--details
+                .product_name-details
+                  p.product_name= item.cake.name
+                  p.product_flvour= item.cake.flavour
+                p.product_seller
+                  span.seller_tile Seller:
+                  span.seller_details CookieDaze web application
+                - const cakePrice=new Intl.NumberFormat('en-US',{ style: "currency",currency: "INR",}).format(item.totoalPrice)
+                p.product_price= cakePrice
+                .quantity_btns
+                  svg.quantity_btn--add.quantity_btn(data-cart=`${item._id}`)
+                    use(xlink:href='/img/ssg.svg#plus')
+                  p.intem_quantity= item.quantity
+                  -if (item.quantity===1)
+                    svg.quantity_btn.quantity_btn-inactive
+                      use(xlink:href='/img/ssg.svg#minas')
+                  -else
+                    svg.quantity_btn--remove.quantity_btn(data-cart=`${item._id}`)
+                      use(xlink:href='/img/ssg.svg#minas')
+                    
+              .ordered_prodect--delivary
+                svg.delete_item_btn(data-cart=`${item._id}`)
+                  use(xlink:href='/img/ssg.svg#bin')
+                .delivary_detals
+                  svg.delivary-icons
+                    use(xlink:href='/img/ssg.svg#track')
+                  span.delivary-date Delivery by Tue Feb 13 
+          a.order_place-btn(href='#') Place Order
+        -else
+          p.simple-cart-text No item in your cart

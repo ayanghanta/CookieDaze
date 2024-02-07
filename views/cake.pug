@@ -1,5 +1,8 @@
 extends base
 
+block append head 
+  script(src="/js/cake.js" defer) 
+
 mixin cakeStat(title,value)
   .stats
     span.stat-title= `${title}:`
@@ -50,13 +53,17 @@ block append content
           form.form_addToCart
             div
               label(for='input__pin-code') Enter your pin code
-              input#input__pin-code.input__pin-code.input(type='text' placeholder='693422' required='')
+              input#input__pin-code.input__pin-code.input(type='text' placeholder='693422')
             div
               label(for='input__custom--msg') Write custom message
               input#input__custom--msg.input__custom--msg.input(type='text' placeholder='Happy Birthday AYAN')
             button.button.check-pincode(type='button')
               | Check availability
-            button.button.Add-to-cart(type='submit') Add to cart
+            if user
+              button.button.Add-to-cart(type='submit' data-id=`${cake._id}`) Add to cart
+            else 
+              a.button.Add-to-cart.login-to-add(href="#") Login to add cart
+
           .stat-container
             p.stat-heading Cake Info
 

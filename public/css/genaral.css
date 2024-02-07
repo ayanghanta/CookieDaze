@@ -88,6 +88,11 @@ a:active {
   color: #fff;
   background-color: #f24f63;
 }
+.nav-cart-icon {
+  height: 3.2rem;
+  width: 3.2rem;
+  fill: #78121e;
+}
 /* special tags */
 .tag-vegB {
   border: 1px solid green;

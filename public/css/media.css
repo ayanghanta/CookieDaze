@@ -489,3 +489,56 @@
     border-bottom-left-radius: 0.8rem;
   }
 }
+
+/* ------------------*----------------- */
+
+/* Media Query for Billing page */
+
+/* **** Media quary for(640px) **** */
+
+@media (max-width: 40em) {
+  .ordered_prodect_card {
+    align-items: center;
+  }
+  .ordered_prodect--delivary {
+    align-self: flex-start;
+    margin-left: 1.2rem;
+  }
+  .quantity_btns {
+    margin-top: 1.2rem;
+  }
+  .ordered_prodect_card {
+    border-radius: 0.8rem;
+  }
+  .ordered_prodect--img {
+    width: 90%;
+    border-radius: 0.8rem;
+  }
+}
+
+/* **** Media quary for(528px) **** */
+
+@media (max-width: 35em) {
+  .ordered_prodect--img {
+    width: 100%;
+  }
+  .ordered_prodect--details {
+    margin-left: 2rem;
+  }
+  .quantity_btns {
+    width: 50%;
+  }
+}
+
+/* **** Media quary for(496) **** */
+
+@media (max-width: 31em) {
+  .ordered_prodect_card {
+    width: 80%;
+    grid-template-columns: 1fr;
+    row-gap: 2.4rem;
+  }
+  .quantity_btns {
+    width: 40%;
+  }
+}

@@ -1,13 +1,11 @@
 const Cake = require('./../models/cakeModel');
+const Cart = require('./../models/cartModel');
 const catchAsync = require('./../utils/catchAsync');
 
 exports.getOverview = catchAsync(async function (req, res, next) {
   const cakes = await Cake.find();
   res
-    .set(
-      'Content-Security-Policy',
-      "connect-src 'self' https://cdnjs.cloudflare.com"
-    )
+    .set('Content-Security-Policy', "connect-src 'self' https://cdnjs.cloudflare.com")
     .status(200)
     .render('overview', {
       title: 'Wholesome Cake Joy',
@@ -23,10 +21,7 @@ exports.getCake = catchAsync(async function (req, res, next) {
   // console.log(cake);
   res
     .status(200)
-    .set(
-      'Content-Security-Policy',
-      "connect-src 'self' https://cdnjs.cloudflare.com"
-    )
+    .set('Content-Security-Policy', "connect-src 'self' https://cdnjs.cloudflare.com")
     .render('cake', {
       title: `${cake.name}`,
       cake,
@@ -36,11 +31,22 @@ exports.getCake = catchAsync(async function (req, res, next) {
 exports.getAccount = (req, res) => {
   res
     .status(200)
-    .set(
-      'Content-Security-Policy',
-      "connect-src 'self' https://cdnjs.cloudflare.com"
-    )
+    .set('Content-Security-Policy', "connect-src 'self' https://cdnjs.cloudflare.com")
     .render('account', {
       title: 'Your Account',
     });
 };
+
+exports.getBilling = catchAsync(async (req, res) => {
+  const cartItems = await Cart.find({ user: req.user._id }).populate({
+    path: 'cake',
+    select: 'name weight price coverImage flavour',
+  });
+  res
+    .status(200)
+    .set('Content-Security-Policy', "connect-src 'self' https://cdnjs.cloudflare.com")
+    .render('billing', {
+      title: 'Your cart',
+      cartItems,
+    });
+});

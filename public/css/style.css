@@ -58,8 +58,7 @@ header {
   padding-right: 1.2rem;
   background-color: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(10px);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 .navCross {
   display: none;
@@ -127,11 +126,7 @@ header {
 /* ######################### */
 .hero-section {
   padding: 4.8rem 0;
-  background-image: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.8),
-      rgba(96, 96, 96, 0.2)
-    ),
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(96, 96, 96, 0.2)),
     url('../img/header-img/header-img-4.jpg');
   background-size: cover;
   background-position: left;
@@ -1080,4 +1075,135 @@ input {
 .account-password-form-btn-container {
   align-self: flex-end;
   padding-top: 2.4rem;
+}
+
+/* ################ */
+/* Style For Billing Page */
+.billing-section {
+  padding: 4.8rem 0;
+  background-color: #e9ecef;
+}
+.item_cards--cart {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+.ordered_prodect_card {
+  background-color: #fabdc5;
+  max-width: 90rem;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 30% 45% 25%;
+  padding: 2.4rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.ordered_prodect--img {
+  display: block;
+  width: 80%;
+  border-radius: 1rem;
+}
+.ordered_prodect--details {
+  margin-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.product_name {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #78121e;
+}
+.product_flvour {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #b4878d;
+}
+.product_seller {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #555;
+}
+.product_price {
+  font-size: 2.4rem;
+  color: #333;
+}
+.delivary-icons {
+  height: 2.8rem;
+  width: 2.8rem;
+  fill: #444;
+}
+.quantity_btns {
+  margin-top: 1.6rem;
+  background-color: #f13950;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.6rem;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.quantity_btn {
+  width: 2.8rem;
+  height: 2.8rem;
+  fill: #fff;
+  cursor: pointer;
+  /* background-color: gray; */
+}
+.quantity_btn-inactive {
+  opacity: 0 !important;
+}
+.intem_quantity {
+  font-size: 1.8rem;
+  color: #fff;
+}
+.ordered_prodect--delivary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2.4rem;
+  font-size: 1.4rem;
+  color: #444;
+}
+.delete_item_btn {
+  cursor: pointer;
+  height: 3.6rem;
+  width: 3.6rem;
+  fill: #f48c06;
+}
+.delivary_detals {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.order_place-btn:link,
+.order_place-btn:visited {
+  margin-top: 5.2rem;
+  background-color: #ef233c;
+  text-align: center;
+  align-self: center;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  padding: 2rem 3.2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: 0.6rem;
+  transition: all 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.order_place-btn:hover,
+.order_place-btn:active {
+  background-color: #bf1c30;
+}
+.simple-cart-text {
+  text-align: center;
+  font-size: 5.2rem;
+  font-weight: 500;
+  color: #f9a7b1;
+  margin: 12.8rem 0;
 }
