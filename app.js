@@ -11,6 +11,7 @@ const cakeRouter = require('./routes/cakeRouts');
 const userRouter = require('./routes/userRouts');
 const reviewRouts = require('./routes/reviewRouts');
 const cartRouter = require('./routes/cartRouts');
+const paymentRouter = require('./routes/paymentRouts');
 const viewRouter = require('./routes/viewRouts');
 
 const AppError = require('./utils/appError');
@@ -62,13 +63,7 @@ app.use(xssClean());
 
 app.use(
   hpp({
-    whitelist: [
-      'weight',
-      'price',
-      'ratingAvarage',
-      'ratingQuantity',
-      'flavour',
-    ],
+    whitelist: ['weight', 'price', 'ratingAvarage', 'ratingQuantity', 'flavour'],
   })
 );
 
@@ -79,6 +74,7 @@ app.use('/api/v1/cakes', cakeRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouts);
 app.use('/api/v1/cart', cartRouter);
+app.use('/api/v1/payment', paymentRouter);
 
 // Handeling error
 

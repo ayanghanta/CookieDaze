@@ -39,7 +39,7 @@ exports.addToCart = catchAsync(async (req, res, next) => {
 exports.getCartItems = catchAsync(async (req, res, next) => {
   const items = await Cart.find({ user: req.user._id }).populate({
     path: 'cake',
-    select: 'name weight price coverImage flavour',
+    select: 'name weight price coverImage flavour description',
   });
 
   res.status(200).json({

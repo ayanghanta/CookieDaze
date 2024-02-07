@@ -1180,8 +1180,8 @@ input {
   align-items: center;
   gap: 0.6rem;
 }
-.order_place-btn:link,
-.order_place-btn:visited {
+
+.order_place-btn {
   margin-top: 5.2rem;
   background-color: #ef233c;
   text-align: center;
@@ -1195,9 +1195,10 @@ input {
   border-radius: 0.6rem;
   transition: all 0.3s;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  cursor: pointer;
 }
-.order_place-btn:hover,
-.order_place-btn:active {
+
+.order_place-btn:hover {
   background-color: #bf1c30;
 }
 .simple-cart-text {

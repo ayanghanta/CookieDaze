@@ -1,6 +1,7 @@
 extends base
 
 block append head 
+  script(src="https://js.stripe.com/v3/" defer)
   script(src="/js/billing.js" defer) 
 
 block append content 
@@ -38,6 +39,6 @@ block append content
                   svg.delivary-icons
                     use(xlink:href='/img/ssg.svg#track')
                   span.delivary-date Delivery by Tue Feb 13 
-          a.order_place-btn(href='#') Place Order
+          span.order_place-btn(data-user-id=`${user._id}`) Place Order
         -else
           p.simple-cart-text No item in your cart

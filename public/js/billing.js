@@ -1,4 +1,7 @@
 const cards = document.querySelector('.item_cards--cart');
+const stripe = Stripe(
+  'pk_test_51OgjQiSFnuZkXGiiD2NuQI6ecV3IUOEisrRyX5UIdBaYoTVKzFpodnouYoMjY9f0B4FuV31s9UnqabQCHijXrcGG00h5330gEJ'
+);
 
 const itemControl = async (method, route, cartId) => {
   try {
@@ -35,3 +38,28 @@ cards.addEventListener('click', async (e) => {
     //
   }
 });
+
+// Stripre
+const orderPlaceBtn = document.querySelector('.order_place-btn');
+
+const orderPlace = async (userId) => {
+  try {
+    const session = await axios.get(
+      `http://127.0.0.1:3000/api/v1/payment/payment-session/${userId}`
+    );
+    // console.log(session);
+    await stripe.redirectToCheckout({
+      sessionId: session.data.session.id,
+    });
+  } catch (err) {
+    console.log(err.response.data.message);
+  }
+};
+
+if (orderPlaceBtn) {
+  orderPlaceBtn.addEventListener('click', (e) => {
+    e.target.textContent = 'Processing...';
+    const { userId } = e.target.dataset;
+    orderPlace(userId);
+  });
+}
