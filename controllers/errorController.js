@@ -12,6 +12,7 @@ const sendErrorDev = function (err, res) {
 
 const sendErrorProd = function (err, res) {
   if (err.isOperational) {
+    console.log(err.message);
     res.status(err.statusCode).json({
       status: err.status,
       ok: false,
@@ -60,11 +61,12 @@ module.exports = (err, req, res, next) => {
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === 'production') {
     let error = { ...err };
+    error.message = err.message;
     if (err.name === 'CastError') error = handleCastErrorDB(err);
     if (err.code === 11000) error = handleDuplicateKeyErrorDB(err);
     if (err.name === 'ValidationError') error = handleValidationErrorDB(err);
     if (err.name === 'JsonWebTokenError') error = handleInvalidJwt();
     if (err.name === 'TokenExpiredError') error = handleExpireJwt();
-    sendErrorProd(error, res);
+    sendErrorProd(err, res);
   }
 };

@@ -4,20 +4,11 @@
   svg.modal-close-btn
     use(xlink:href='/img/ssg.svg#cross')
   p.title-modal Join us to taste happiness !
-  form.modal-singUp-form.modal-form.hide
+  form.modal-password-rest-form.modal-form.hide
     .modal-div
-      label.modal-label(for='name') First name
-      input#name.modal-inp(type='text' name='First-name')
-    .modal-div
-      label.modal-label(for='singup-email') Your email
-      input#singup-email.modal-inp(type='email' name='Email')
-    .modal-div
-      label.modal-label(for='password') Password
-      input#password.modal-inp(type='password' name='password')
-    .modal-div
-      label.modal-label(for='passwordConfirm') Confirm Password
-      input#passwordConfirm.modal-inp(type='password' name='passwordConfirm')
-    button.btn-modal-SignUp(type='submit') Sign up
+      label.modal-label(for='verification-email') Your email
+      input#verification-email.modal-inp(type='email' name='Email' required=' ')
+    button.btn-modal-send_verification_code.modal_btn-action(type='submit') Send verification code
   form.form-login.modal-form
     .modal-div
       label.modal-label(for='login-email') Email
@@ -25,7 +16,8 @@
     .modal-div
       label.modal-label(for='login-password') Password 
       input#login-password.modal-inp.password-inp(type='password' name='Password')
-    button.btn-modal-Login(type='submit') Login
+      span.forgot-password-text forgot password?
+    button.btn-modal-Login.modal_btn-action(type='submit') Login
   p.login-text.hide
     | Already have an account ? 
     span.login-text-btn Login

@@ -50,3 +50,14 @@ exports.getBilling = catchAsync(async (req, res) => {
       cartItems,
     });
 });
+
+exports.getResetPassword = (req, res) => {
+  const token = req.params.passwordResetToken;
+  res
+    .set('Content-Security-Policy', "connect-src 'self' https://cdnjs.cloudflare.com")
+    .status(200)
+    .render('resetPassword', {
+      title: 'Reset your password',
+      token,
+    });
+};

@@ -570,10 +570,10 @@ input {
   padding: 3.2rem 2.4rem;
   transform: all 0.5s;
   z-index: 1001;
-  max-width: 85rem;
   border-radius: 0.4rem;
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 .title-modal {
   font-size: 3.6rem;
@@ -605,8 +605,13 @@ input {
   color: #600e18;
 }
 
-.btn-modal-Login,
-.btn-modal-SignUp {
+.btn-modal-Login {
+  background-color: #d72036 !important;
+}
+.btn-modal-send_verification_code {
+  background-color: #f48c06 !important;
+}
+.modal_btn-action {
   padding: 1rem 3.2rem;
   /* align-self: flex-end; */
   font-family: inherit;
@@ -615,7 +620,6 @@ input {
   border: none;
   background: none;
   border-radius: 4px;
-  background-color: #d72036;
   color: #fff;
   transition: all 0.3s;
   cursor: pointer;
@@ -640,6 +644,17 @@ input {
   display: grid;
   grid-template-columns: 40% 60%;
   column-gap: 1.2rem;
+}
+.forgot-password-text {
+  grid-column: 2/-1;
+  justify-self: flex-end;
+  font-size: 1.4rem;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.forgot-password-text:hover {
+  color: #f48c06;
 }
 .login-text,
 .singup-text {
@@ -1207,4 +1222,75 @@ input {
   font-weight: 500;
   color: #f9a7b1;
   margin: 12.8rem 0;
+}
+
+/* ################ */
+/* Style For Password Rest Page */
+.password_reset_section {
+  padding: 3.2rem 0;
+  background-color: #eef0eb;
+}
+.password_reset_container {
+  max-width: 100rem;
+  padding: 6.4rem 4.2rem 3.2rem 4.2rem;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.password_reset_section .heading-secondary {
+  font-weight: 500;
+  color: #bf1c30;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.password_reset-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  align-items: center;
+}
+.password_reset_inp {
+  background-color: #d9d9d9;
+  padding: 0.8rem 1.6rem;
+  font-size: 2rem;
+  font-weight: 300;
+  font-family: inherit;
+  color: #8f1524;
+  border-bottom: 2px solid transparent;
+  border-radius: 0.4rem;
+  transition: all 0.3s;
+  /* width: 80%; */
+  width: 60rem;
+}
+.password_reset_inp:focus {
+  outline: none;
+  border-bottom: 3px solid #55a630;
+}
+.password_reset_inp:focus:invalid {
+  border-bottom: 3px solid #ff7730;
+}
+.password_reset_section label {
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #444;
+}
+.password_reset_btn-container {
+  display: flex;
+}
+.btn-password_rest {
+  margin-top: 3.2rem;
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+  background-color: #f48c06;
+  padding: 1.2rem 2rem;
+  font-weight: 500;
+  font-size: 2rem;
+  color: #fff;
+  border-radius: 0.4rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

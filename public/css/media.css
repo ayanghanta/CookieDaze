@@ -137,6 +137,9 @@
     width: 50%;
     justify-self: center;
   }
+  .modal {
+    width: 70%;
+  }
   .modal-div {
     flex-direction: column;
     gap: 0;
@@ -265,6 +268,9 @@
   }
   .reviem-text {
     font-size: 1.8rem;
+  }
+  .modal {
+    width: 90%;
   }
   /* .specialCatgory:last-child {
     grid-column: 1/-1;
@@ -540,5 +546,56 @@
   }
   .quantity_btns {
     width: 40%;
+  }
+}
+/* ------------------*----------------- */
+
+/* Media Query for Password rest page */
+
+/* **** Media quary for(800px) **** */
+
+@media (max-width: 50em) {
+  .password_reset_container {
+    max-width: 80rem;
+  }
+}
+/* **** Media quary for(650px) **** */
+
+@media (max-width: 40em) {
+  .password_reset_container {
+    max-width: 70rem;
+  }
+  .password_reset_inp {
+    width: 50rem;
+  }
+}
+/* **** Media quary for(560px) **** */
+
+@media (max-width: 35em) {
+  .password_reset_container {
+    max-width: 60rem;
+  }
+  .password_reset_inp {
+    width: 40rem;
+  }
+}
+/* **** Media quary for(480px) **** */
+
+@media (max-width: 30em) {
+  .password_reset_container {
+    max-width: 50rem;
+  }
+  .password_reset_inp {
+    width: 40rem;
+  }
+}
+/* **** Media quary for(416px) **** */
+
+@media (max-width: 26em) {
+  .password_reset_container {
+    max-width: 40rem;
+  }
+  .password_reset_inp {
+    width: 35rem;
   }
 }

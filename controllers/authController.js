@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const User = require('./../models/userModel');
-const sendEmail = require('./../utils/mail');
+const Email = require('./../utils/mail');
 
 const singToken = function (id) {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -160,15 +160,11 @@ exports.forgotPassword = catchAsync(async function (req, res, next) {
   const resetToken = user.createResetPasswordToken();
   await user.save({ validateBeforeSave: false });
 
-  const resetURL = `${req.protocol}://${req.hostname}/api/v1/users/resetpassword/${resetToken}`;
-  const message = `Reset Your Password by ${resetURL}- Click the link in your email to reset within 10 min. Ignore if not requested`;
+  const resetURL = `${req.protocol}://${req.get('host')}/resetPassword/${resetToken}`;
+  // const message = `Reset Your Password by ${resetURL}- Click the link in your email to reset within 10 min. Ignore if not requested`;
   // 4) send Email
   try {
-    sendEmail({
-      email,
-      subject: 'Rest token send',
-      text: message,
-    });
+    await new Email(user, resetURL).sendRestPassword();
   } catch (err) {
     user.passwordResetToken = undefined;
     user.passwordResetTokenAt = undefined;

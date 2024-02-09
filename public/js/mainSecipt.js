@@ -11,13 +11,13 @@ const modalEl = document.querySelector('.modal');
 const overLay = document.querySelector('.overlay');
 const modalCloseBtn = document.querySelector('.modal-close-btn');
 const loginFormModal = document.querySelector('.form-login');
-const singupFormModal = document.querySelector('.modal-singUp-form');
+const sendRestTokenForm = document.querySelector('.modal-password-rest-form');
 const modalSingInBtn = document.querySelector('.btn-modal-SignUp');
 const modalLoginText = document.querySelector('.login-text');
 const loginTextBtn = document.querySelector('.login-text-btn');
 const modalSingUpText = document.querySelector('.singup-text');
-const singupTextBtn = document.querySelector('.singUp-text-btn');
-const btnClosecart = document.querySelector('.close-cart');
+const forgotPasswordTextBtn = document.querySelector('.forgot-password-text');
+const btnSentRestToken = document.querySelector('.btn-modal-send_verification_code');
 
 // Mobile-navigation
 mobileNavEl.addEventListener('click', function () {
@@ -58,21 +58,21 @@ if (sectionHeroEl) {
 
 const closeModal = function () {
   // document.getElementById("myForm").reset();
-  document.querySelector('.modal-singUp-form').reset();
+  document.querySelector('.modal-password-rest-form').reset();
   document.querySelector('.form-login').reset();
   modalEl.classList.add('hidden');
   overLay.classList.add('hidden');
 };
 
 const openLoginDisplay = function () {
-  singupFormModal.classList.add('hide');
+  sendRestTokenForm.classList.add('hide');
   loginFormModal.classList.remove('hide');
   modalLoginText.classList.add('hide');
   modalSingUpText.classList.remove('hide');
 };
 
 const openSignUpDisplay = function () {
-  singupFormModal.classList.remove('hide');
+  sendRestTokenForm.classList.remove('hide');
   loginFormModal.classList.add('hide');
   modalLoginText.classList.remove('hide');
   modalSingUpText.classList.add('hide');
@@ -101,4 +101,26 @@ document.addEventListener('keydown', function (e) {
 });
 
 loginTextBtn.addEventListener('click', openLoginDisplay);
-singupTextBtn.addEventListener('click', openSignUpDisplay);
+forgotPasswordTextBtn.addEventListener('click', openSignUpDisplay);
+
+if (sendRestTokenForm) {
+  sendRestTokenForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('verification-email').value;
+    try {
+      btnSentRestToken.textContent = 'Sending email...';
+      await axios.post(`http://127.0.0.1:3000/api/v1/users/forgotpassword`, {
+        email,
+      });
+
+      showAlert(`Token send to ${email}`, 'success');
+      btnSentRestToken.textContent = ' Send verification code';
+      closeModal();
+    } catch (err) {
+      // console.log(err, 'error');
+      btnSentRestToken.textContent = ' Send verification code';
+
+      showAlert(err.response.data.message, 'error');
+    }
+  });
+}
