@@ -63,6 +63,14 @@ exports.singup = catchAsync(async function (req, res, nest) {
   // resctrict to send password in responce
   newUser.password = undefined;
 
+  // send welcome mail
+  const url = `${req.protocol}://${req.get('host')}/me`;
+  try {
+    await new Email(newUser, url).sendWelcome();
+  } catch (err) {
+    console.log(err);
+  }
+
   createTokenAndSend(newUser, 201, res, true);
 });
 
