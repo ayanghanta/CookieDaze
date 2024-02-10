@@ -5,7 +5,12 @@ const userContoller = require('./../controllers/userController');
 
 const router = express.Router();
 
-router.post('/singup', authController.singup);
+router.post(
+  '/singup',
+  userContoller.uploadUserPhoto,
+  authController.resizeuserPhoto,
+  authController.singup
+);
 router.post('/login', authController.login);
 router.get('/logout', authController.logout);
 router.post('/forgotpassword', authController.forgotPassword);

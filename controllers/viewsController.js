@@ -1,6 +1,17 @@
 const Cake = require('./../models/cakeModel');
 const Cart = require('./../models/cartModel');
 const catchAsync = require('./../utils/catchAsync');
+const AppError = require('./../utils/appError');
+
+exports.getSingup = (req, res) => {
+  res
+    .set('Content-Security-Policy', "connect-src 'self' https://cdnjs.cloudflare.com")
+    .status(200)
+    .render('singup', {
+      title: `Let's Bake Memories Together!`,
+      user: req.user,
+    });
+};
 
 exports.getOverview = catchAsync(async function (req, res, next) {
   const cakes = await Cake.find();
@@ -19,6 +30,7 @@ exports.getCake = catchAsync(async function (req, res, next) {
     select: 'review rating user',
   });
   // console.log(cake);
+  if (!cake) return next(new AppError('This cake is not found in our DB', 404));
   res
     .status(200)
     .set('Content-Security-Policy', "connect-src 'self' https://cdnjs.cloudflare.com")

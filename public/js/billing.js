@@ -6,13 +6,9 @@ const stripe = Stripe(
 const itemControl = async (method, route, cartId) => {
   try {
     if (method == 'patch') {
-      const res = await axios.patch(
-        `http://127.0.0.1:3000/api/v1/cart/${route}/${cartId}`
-      );
+      const res = await axios.patch(`/api/v1/cart/${route}/${cartId}`);
     } else {
-      const res = await axios.delete(
-        `http://127.0.0.1:3000/api/v1/cart/${route}/${cartId}`
-      );
+      const res = await axios.delete(`/api/v1/cart/${route}/${cartId}`);
     }
     location.reload(true);
   } catch (err) {
@@ -44,9 +40,7 @@ const orderPlaceBtn = document.querySelector('.order_place-btn');
 
 const orderPlace = async (userId) => {
   try {
-    const session = await axios.get(
-      `http://127.0.0.1:3000/api/v1/payment/payment-session/${userId}`
-    );
+    const session = await axios.get(`/api/v1/payment/payment-session/${userId}`);
     // console.log(session);
     await stripe.redirectToCheckout({
       sessionId: session.data.session.id,

@@ -110,9 +110,9 @@ header {
 }
 
 .nav-user-name {
-  font-weight: 500;
-  font-size: 1.9rem;
-  color: #d72036;
+  font-weight: 400;
+  font-size: 2.2rem;
+  color: #600e18;
 }
 .nav-user-name::first-letter {
   text-transform: uppercase;
@@ -464,13 +464,25 @@ input {
 .cta-form input,
 .cta-form select {
   padding: 1.2rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 400;
   font-family: inherit;
   color: inherit;
   border: none;
   background-color: #fdf2e9;
+  color: #8f1524;
   border-radius: 4px;
+  border-bottom: 3px solid transparent;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.cta-form input:focus {
+  outline: none;
+  border-bottom: 3px solid #55a630 !important;
+}
+.cta-form input:focus:invalid {
+  border-bottom: 3px solid #fd6513 !important;
 }
 .btn--form {
   padding: 1.2rem 2.4rem;
@@ -1010,7 +1022,7 @@ input {
   font-weight: 300;
   font-family: inherit;
   color: #8f1524;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
   border-radius: 0.4rem;
   transition: all 0.3s;
   /* width: 40rem; */
@@ -1293,4 +1305,147 @@ input {
   color: #fff;
   border-radius: 0.4rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* ################ */
+/* Style For Singup Page */
+.singup-section {
+  padding: 12.8rem 0 9.6rem 0;
+  background-color: #e9ecef;
+}
+.singup-section .heading-secondary {
+  text-align: center;
+  color: #d72036;
+  font-weight: 500;
+  font-size: 3.8rem;
+}
+.form-container {
+  width: 80% !important;
+  padding: 4.8rem 6.4rem;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.singup-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+  align-items: center;
+}
+.sinup_inp {
+  background-color: #fde9ec;
+  padding: 0.8rem 1.6rem;
+  font-size: 2rem;
+  font-weight: 300;
+  font-family: inherit;
+  color: #78121e;
+  border-bottom: 2px solid transparent;
+  border-radius: 0.4rem;
+  transition: all 0.3s;
+  border-bottom: 3px solid transparent;
+}
+.sinup_inp:focus {
+  border-bottom: 3px solid #55a630 !important;
+  outline: none;
+}
+.sinup_inp:focus:invalid {
+  border-bottom: 3px solid #ff7730 !important;
+}
+.singup-section label {
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #444;
+}
+.singup_inp-conatiner-file {
+  margin-top: 3.6rem;
+  grid-column: 1 / span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.preview_img {
+  display: block;
+  height: 14rem;
+  width: 14rem;
+  border-radius: 50%;
+  background-color: #fde9ec;
+  color: #fde9ec;
+}
+.sinup_inp-file {
+  border: none;
+  font-family: inherit;
+  /* color: #78121e; */
+  width: 0.1rem;
+  height: 0.1rem;
+  opacity: 0;
+}
+.label_profile-pic {
+  margin-right: 7.2rem;
+  padding: 0.8rem 1.6rem;
+  color: #fde8e8 !important;
+  background-color: #f24f63;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+
+.singup_btn-container {
+  margin-top: 3.6rem;
+  grid-column: 1 / span 2;
+  justify-self: center;
+}
+.create_account-btn {
+  border: none;
+  background: none;
+  font-family: inherit;
+  padding: 1.2rem 2.4rem;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #ef233c;
+  border-radius: 0.4rem;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.create_account-btn:hover {
+  background-color: #d72036;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+}
+
+/* ################ */
+/* Style For Error Page */
+.error-section {
+  padding: 13.6rem 0;
+  background-color: #f1d1d1;
+}
+.error-icon {
+  height: 4.8rem;
+  width: 4.8rem;
+  fill: #a10702;
+}
+.error-text {
+  text-align: center;
+  font-size: 4.8rem;
+  font: 500;
+  color: #a10702;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+.error-message {
+  margin-top: 2.4rem;
+  text-align: center;
+  font-size: 3.6rem;
+  color: #e85d04;
+}
+.error-message-genral {
+  margin-top: 2.4rem;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #ed7d36;
 }

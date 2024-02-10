@@ -1,0 +1,16 @@
+extends base
+
+//- block append head 
+//- script(src="/js/singup.js" defer) 
+
+
+block append content
+  main.main.main-ortherPage
+    section.error-section
+      p.error-text.container
+        svg.error-icon
+          use(xlink:href='/img/ssg.svg#error')
+        span Some thing went wong !
+      p.error-message.container
+        | #{msg}
+      p.error-message-genral Try agin later :(

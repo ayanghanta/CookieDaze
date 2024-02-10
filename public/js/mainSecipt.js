@@ -18,6 +18,7 @@ const loginTextBtn = document.querySelector('.login-text-btn');
 const modalSingUpText = document.querySelector('.singup-text');
 const forgotPasswordTextBtn = document.querySelector('.forgot-password-text');
 const btnSentRestToken = document.querySelector('.btn-modal-send_verification_code');
+const ctaForm = document.querySelector('.cta-form');
 
 // Mobile-navigation
 mobileNavEl.addEventListener('click', function () {
@@ -109,7 +110,7 @@ if (sendRestTokenForm) {
     const email = document.getElementById('verification-email').value;
     try {
       btnSentRestToken.textContent = 'Sending email...';
-      await axios.post(`http://127.0.0.1:3000/api/v1/users/forgotpassword`, {
+      await axios.post(`/api/v1/users/forgotpassword`, {
         email,
       });
 
@@ -122,5 +123,35 @@ if (sendRestTokenForm) {
 
       showAlert(err.response.data.message, 'error');
     }
+  });
+}
+
+// singup in overview page
+
+// NOTEME: singup expose globally
+const singup = async (userObj) => {
+  try {
+    await axios.post('/api/v1/users/singup', userObj);
+
+    showAlert('Your account is successfully created 🎉', 'success');
+
+    window.setTimeout(() => {
+      location.assign('/');
+    }, 1500);
+    //
+  } catch (err) {
+    showAlert(err.response.data.message, 'error');
+  }
+};
+
+if (ctaForm) {
+  ctaForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('full-name').value;
+    const email = document.getElementById('singup-email-2').value;
+    const password = document.getElementById('singup-password-2').value;
+    const passwordConfirm = document.getElementById('singup-password_confirm-2').value;
+
+    await singup({ name, email, password, passwordConfirm });
   });
 }

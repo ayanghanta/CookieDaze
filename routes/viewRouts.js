@@ -5,6 +5,7 @@ const viewsController = require('./../controllers/viewsController');
 const router = express.Router();
 
 router.get('/', authController.isLoggededIn, viewsController.getOverview);
+router.get('/singup',viewsController.getSingup);
 
 router.get('/cake/:cakeSlug', authController.isLoggededIn, viewsController.getCake);
 

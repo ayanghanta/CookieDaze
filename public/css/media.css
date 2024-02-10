@@ -599,3 +599,72 @@
     width: 35rem;
   }
 }
+
+/* ------------------*----------------- */
+
+/* Media Query for Singup page */
+
+/* **** Media quary for(768px) **** */
+
+@media (max-width: 48em) {
+  .form-container {
+    width: 90% !important;
+  }
+}
+
+/* **** Media quary for(592px) **** */
+
+@media (max-width: 48em) {
+  .form-container {
+    width: 95% !important;
+    padding: 3.2rem;
+  }
+}
+
+/* **** Media quary for(496px) **** */
+
+@media (max-width: 31em) {
+  .form-container {
+    width: 90% !important;
+  }
+  .singup-form {
+    grid-template-columns: 1fr;
+  }
+  .singup_inp-conatiner-file {
+    grid-column: 1 / span 1;
+  }
+  .singup_btn-container {
+    grid-column: 1 / span 1;
+  }
+}
+/* ------------------*----------------- */
+
+/* Media Query for Error page */
+
+/* **** Media quary for(600px) **** */
+
+@media (max-width: 37em) {
+  .error-text {
+    font-size: 3.6rem;
+  }
+  .error-message {
+    font-size: 2.8rem;
+  }
+  .error-message-genral {
+    font-size: 1.6rem;
+  }
+}
+
+/* **** Media quary for(420px) **** */
+
+@media (max-width: 26em) {
+  .error-text {
+    font-size: 3rem;
+  }
+  .error-message {
+    font-size: 2.2rem;
+  }
+  .error-message-genral {
+    font-size: 1.4rem;
+  }
+}

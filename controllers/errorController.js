@@ -1,31 +1,60 @@
 const AppError = require('./../utils/appError');
 
-const sendErrorDev = function (err, res) {
-  res.status(err.statusCode).json({
-    status: err.status,
-    ok: false,
-    message: err.message,
-    error: err,
-    stack: err.stack,
-  });
-};
-
-const sendErrorProd = function (err, res) {
-  if (err.isOperational) {
-    console.log(err.message);
-    res.status(err.statusCode).json({
+const sendErrorDev = function (req, res, err) {
+  // A) for api
+  if (req.originalUrl.startsWith('/api')) {
+    return res.status(err.statusCode).json({
       status: err.status,
       ok: false,
       message: err.message,
+      error: err,
+      stack: err.stack,
     });
+  }
+  // for webpage
+  return res
+    .status(err.statusCode)
+    .set('Content-Security-Policy', "connect-src 'self' https://cdnjs.cloudflare.com")
+    .render('error', {
+      title: `${err.statusCode} Error`,
+      msg: err.message,
+    });
+};
+
+const sendErrorProd = function (req, res, err) {
+  if (err.isOperational) {
+    if (req.originalUrl.startsWith('/api')) {
+      console.log('ERROR 🍒', err);
+      return res.status(err.statusCode).json({
+        status: err.status,
+        ok: false,
+        message: err.message,
+      });
+    }
+    return res
+      .status(err.statusCode)
+      .set('Content-Security-Policy', "connect-src 'self' https://cdnjs.cloudflare.com")
+      .render('error', {
+        title: `${err.statusCode} Error`,
+        msg: err.message,
+      });
   } else {
-    // Programming or orther  error: don't leak error details
-    // console.log('ERROR 🍒', err);
-    res.status(500).json({
-      status: 'fail',
-      ok: false,
-      message: 'Some thing went wrong !',
-    });
+    // 🔽| Programming or orther  error: don't leak error details
+    if (req.originalUrl.startsWith('/api')) {
+      console.log('ERROR 🍒', err);
+      return res.status(500).json({
+        status: 'fail',
+        ok: false,
+        message: 'Some thing went wrong !',
+      });
+    }
+    return res
+      .status(err.statusCode)
+      .set('Content-Security-Policy', "connect-src 'self' https://cdnjs.cloudflare.com")
+      .render('error', {
+        title: `${err.statusCode} Error`,
+        msg: 'Something Broken',
+      });
   }
 };
 
@@ -58,7 +87,7 @@ module.exports = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
 
   if (process.env.NODE_ENV === 'development') {
-    sendErrorDev(err, res);
+    sendErrorDev(req, res, err);
   } else if (process.env.NODE_ENV === 'production') {
     let error = { ...err };
     error.message = err.message;
@@ -67,6 +96,6 @@ module.exports = (err, req, res, next) => {
     if (err.name === 'ValidationError') error = handleValidationErrorDB(err);
     if (err.name === 'JsonWebTokenError') error = handleInvalidJwt();
     if (err.name === 'TokenExpiredError') error = handleExpireJwt();
-    sendErrorProd(err, res);
+    sendErrorProd(req, res, err);
   }
 };

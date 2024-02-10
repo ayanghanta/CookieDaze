@@ -1,0 +1,32 @@
+extends base
+
+block append head 
+  script(src="/js/singup.js" defer) 
+
+
+block append content
+  section.singup-section
+    .container.form-container
+      h2.heading-secondary
+        | Unlock Sweet Surprises: Sign Up Now! 🍰
+      form.singup-form
+        .singup_inp-conatiner
+          label(for='user_name') Full name
+          input#user_name.sinup_inp(type='text' name='name' required=' ' spellcheck='false')
+        .singup_inp-conatiner
+          label(for='user_email') Your email
+          input#user_email.sinup_inp(type='email' name='name' required=' ')
+        .singup_inp-conatiner
+          label(for='user_password') Password
+          input#user_password.sinup_inp(type='password' name='name' required=' ' minlength='8')
+        .singup_inp-conatiner
+          label(for='user_password_confirm') Confirm passowrd
+          input#user_password_confirm.sinup_inp(type='password' name='name' required=' ' minlength='8')
+        .singup_inp-conatiner.singup_inp-conatiner-file
+          div
+            label.label_profile-pic(for='inp_profile_photo') Profile photo
+            input#inp_profile_photo.sinup_inp-file(type='file' accept='image/*' name='name')
+          img#user_profile_pic.preview_img(src='#' alt='profile photo')
+        .singup_btn-container
+          button.create_account-btn(type='submit')
+            | Create Account

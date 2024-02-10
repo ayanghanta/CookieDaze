@@ -12,7 +12,7 @@ block append content
           | sugar concerns
         .header-btns
           a.btn.btn-blank(href='#speciality') Learn more &darr;
-          a.btn.btn-fill(href='#CTA') Order Now
+          a.btn.btn-fill(href='/singup') Sing up Now
     section#speciality.section-ourSpeciality
       .container
         h2.heading-secondary
@@ -85,19 +85,19 @@ block append content
     section#catagoryFlavour.section-catagoryFlavour
       .container
         h2.heading-secondary Choose Your Flavorful Delight
-        .flavour-cat-btns
-          .btn-filter
-            p Filter
-            svg.icon-filter
-              use(xlink:href='img/ssg.svg#filter-icon')
-          .btn-mid.cat-btn Chocolate
-          .btn-mid.cat-btn Black Forest
-          .btn-mid.cat-btn Butterscotch
-          .btn-mid.cat-btn Pineapple
-          .btn-mid.cat-btn Turffie
-          .btn-mid.cat-btn Red Velvet
-          .btn-mid.cat-btn Fresh Fruit
-          .btn-mid.cat-btn Vanilla
+        //- .flavour-cat-btns
+        //-   .btn-filter
+        //-     p Filter
+        //-     svg.icon-filter
+        //-       use(xlink:href='img/ssg.svg#filter-icon')
+        //-   .btn-mid.cat-btn Chocolate
+        //-   .btn-mid.cat-btn Black Forest
+        //-   .btn-mid.cat-btn Butterscotch
+        //-   .btn-mid.cat-btn Pineapple
+        //-   .btn-mid.cat-btn Turffie
+        //-   .btn-mid.cat-btn Red Velvet
+        //-   .btn-mid.cat-btn Fresh Fruit
+        //-   .btn-mid.cat-btn Vanilla
         .grid.grid--4-col.all-flavour-carts
           //- Flavour cart -1
           each cake in cakes
@@ -194,13 +194,13 @@ block append content
                 input#singup-email-2(type='email' name='email' placeholder='abc@example.com' required='')
               div
                 label(for='singup-password-2') Password
-                input#singup-password-2(type='password' name='password' placeholder='••••••••' required='')
+                input#singup-password-2(type='password' name='password' placeholder='••••••••' required=' ' minlength='8')
               div
                 label(for='singup-password_confirm-2') Confirm password
-                input#singup-password_confirm-2(type='password' name='confirmPassword' placeholder='••••••••`' required='')
+                input#singup-password_confirm-2(type='password' name='confirmPassword' placeholder='••••••••`' required=' ' minlength='8')
               div
                 label(for='select-where') Where did you hear from us?
-                select#select-where(name='select-where' required='')
+                select#select-where(name='select-where' )
                   option(value='') Please choose one option:
                   option(value='friends') Friends and family
                   option(value='youtube') YouTube video

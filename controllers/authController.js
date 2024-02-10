@@ -1,6 +1,7 @@
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
+const sharp = require('sharp');
 
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
@@ -12,6 +13,19 @@ const singToken = function (id) {
     expiresIn: process.env.JWT_EXP_TIME,
   });
 };
+
+exports.resizeuserPhoto = catchAsync(async (req, res, next) => {
+  if (!req.file) return next();
+  req.body.photo = `user-${req.body.email}-${Date.now()}.jpg`;
+
+  await sharp(req.file.buffer)
+    .resize(500, 500)
+    .toFormat('jpeg')
+    .jpeg({ quality: 90 })
+    .toFile(`public/img/users/${req.body.photo}`);
+
+  next();
+});
 
 const createTokenAndSend = function (user, statusCode, res, sendUser = false) {
   const token = singToken(user._id);

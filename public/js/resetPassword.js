@@ -9,10 +9,10 @@ if (restPasswordForm) {
       const password = document.getElementById('reset_password-new').value;
       const passwordConfirm = document.getElementById('reset_password_confirm-new').value;
 
-      await axios.patch(
-        `http://127.0.0.1:3000/api/v1/users/resetPassword/${resetToken}`,
-        { password, passwordConfirm }
-      );
+      await axios.patch(`/api/v1/users/resetPassword/${resetToken}`, {
+        password,
+        passwordConfirm,
+      });
 
       showAlert('Your password is updated', 'success');
       window.setTimeout(() => {
