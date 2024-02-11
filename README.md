@@ -8,7 +8,7 @@ CookieDaze is your go-to destination for exploring a wide array of delectable ca
 
 ## CookieDaze is live 🌐:
 
-Open your web browser and navigate to www.cookidaze.com.
+Open your web browser and navigate to https://cookiedaze.onrender.com/
 
 ## Features ✨
 
@@ -38,7 +38,7 @@ Ready to join the CookieDaze adventure? Follow these simple steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/CookieDaze.git
+   git clone https://github.com/ayanghanta/CookieDaze.git
    cd CookieDaze
    ```
 
@@ -70,13 +70,6 @@ MAIL_PORT=25
 MAIL_HOST=sandbox.smtp.mailtrap.io
 
 
-# FOR PRODUCTION MAIL SENDING SETUP
-SENDGRID_USERNAME=your_SENDGRID_USERNAME
-SENDGRID_PASSWORD=your_SENDGRID_password
-SENDGRID_EMAIL=your_SENDGRID_email
-
-#FOR STRIPE INTEGRATION
-STRIPE_KEY=your_stripe_key
 
 ```
 
