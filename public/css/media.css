@@ -568,6 +568,10 @@
   .password_reset_inp {
     width: 50rem;
   }
+  .alert_window {
+    padding: 2.4rem;
+    width: 70%;
+  }
 }
 /* **** Media quary for(560px) **** */
 
@@ -587,6 +591,10 @@
   }
   .password_reset_inp {
     width: 40rem;
+  }
+  .alert_window {
+    padding: 2.4rem 1.2rem;
+    width: 70%;
   }
 }
 /* **** Media quary for(416px) **** */

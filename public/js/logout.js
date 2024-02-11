@@ -12,7 +12,7 @@ const logout = async () => {
 };
 
 if (logoutBtn) {
-  logoutBtn.addEventListener('click', (e) => {
-    logout();
+  logoutBtn.addEventListener('click', async (e) => {
+    await logout();
   });
 }

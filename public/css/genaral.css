@@ -123,6 +123,7 @@ a:active {
   border-top-right-radius: 0.4rem;
   border-top-left-radius: 0.4rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  text-align: center;
 }
 .alert_window--success {
   background-color: #29bf12;
