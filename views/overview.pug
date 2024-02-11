@@ -21,7 +21,7 @@ block append content
           // cart1
           .speciality
             svg.icon-speciality
-              use(xlink:href='img/ssg.svg#heart')
+              use(xlink:href='/img/ssg.svg#heart')
             h3.heading-tartiary Health-first approch
             .speciality-content
               | At CookieDaze, we create delicious, healthy cakes for all ages
@@ -29,7 +29,7 @@ block append content
           // cart 2
           .speciality
             svg.icon-speciality
-              use(xlink:href='img/ssg.svg#leaf')
+              use(xlink:href='/img/ssg.svg#leaf')
             h3.heading-tartiary Natural Ingredients
             .speciality-content
               | We use natural ingredients, no chemicals or food colors, so you
@@ -37,7 +37,7 @@ block append content
           // cart 3
           #speciality.speciality
             svg.icon-speciality
-              use(xlink:href='img/ssg.svg#gift')
+              use(xlink:href='/img/ssg.svg#gift')
             // <ion-icon name="gift-outline" class="icon-speciality"></ion-icon>
             h3.heading-tartiary Extended Shelf Life
             .speciality-content
@@ -46,7 +46,7 @@ block append content
           // cart 4
           .speciality
             svg.icon-speciality
-              use(xlink:href='img/ssg.svg#smile')
+              use(xlink:href='/img/ssg.svg#smile')
             h3.heading-tartiary Satisfaction Guarantee
             .speciality-content
               | Your satisfaction is our priority. Full refund if our cake
@@ -56,30 +56,30 @@ block append content
         .grid.grid--3-col
           // G-cat-1
           .genaral-catagory
-            img.genal-cat-img(src='img/genaral-catagory/sameday-delivery.jpg' alt='image of a bautifull and testy cake form our shop')
+            img.genal-cat-img(src='/img/genaral-catagory/sameday-delivery.jpg' alt='image of a bautifull and testy cake form our shop')
             h3.henral-cat-title.heading-tartiary
               | Same Day Delivery
           // G-cat-2
           .genaral-catagory
-            img.genal-cat-img(src='img/genaral-catagory/midnight-delivary.jpg' alt='image of a bautifull and testy cake form our shop')
+            img.genal-cat-img(src='/img/genaral-catagory/midnight-delivary.jpg' alt='image of a bautifull and testy cake form our shop')
             h3.henral-cat-title.heading-tartiary
               | Midnight Delivery
           // G-cat-3
           .genaral-catagory
-            img.genal-cat-img(src='img/genaral-catagory/bestseller.jpg' alt='image of a bautifull and testy cake form our shop')
+            img.genal-cat-img(src='/img/genaral-catagory/bestseller.jpg' alt='image of a bautifull and testy cake form our shop')
             h3.henral-cat-title.heading-tartiary
               | Bestseller Cakes
           // G- cat-4
           .genaral-catagory
-            img.genal-cat-img(src='img/genaral-catagory/brand new.jpg' alt='image of a bautifull and testy cake form our shop')
+            img.genal-cat-img(src='/img/genaral-catagory/brand new.jpg' alt='image of a bautifull and testy cake form our shop')
             h3.henral-cat-title.heading-tartiary Brand New Cakes
           // G- cat-5
           .genaral-catagory
-            img.genal-cat-img(src='img/genaral-catagory/for-childens.jpg' alt='image of a bautifull and testy cake form our shop')
+            img.genal-cat-img(src='/img/genaral-catagory/for-childens.jpg' alt='image of a bautifull and testy cake form our shop')
             h3.henral-cat-title.heading-tartiary Kid-Fit Cakes
           // G- cat-6
           .genaral-catagory
-            img.genal-cat-img(src='img/genaral-catagory/for-diabetic.jpg' alt='image of a bautifull and testy cake form our shop')
+            img.genal-cat-img(src='/img/genaral-catagory/for-diabetic.jpg' alt='image of a bautifull and testy cake form our shop')
             h3.henral-cat-title.heading-tartiary
               | Cakes for Diabetic Patient
     section#catagoryFlavour.section-catagoryFlavour
@@ -102,7 +102,7 @@ block append content
           //- Flavour cart -1
           each cake in cakes
             .flavour-cart
-              img.flavour-cake-img(src=`img/falvoured-cake/${cake.coverImage}` alt=`image of a ${cake.name} form our shop`)
+              img.flavour-cake-img(src=`/img/falvoured-cake/${cake.coverImage}` alt=`image of a ${cake.name} form our shop`)
               .cake-title-box
                 .tag-outline.tag-vegB
                   .tag-circle.tag-veg-bg
@@ -114,7 +114,7 @@ block append content
                 .RAI
                   .rating-value= cake.ratingAvarage
                   svg.icon-rating
-                    use(xlink:href='img/ssg.svg#star')
+                    use(xlink:href='/img/ssg.svg#star')
                   // <ion-icon name="star" class="rating-icon"></ion-icon>
                 .numberOfPeole=  `(${cake.ratingQuantity})`
                 a.add-to-cart.cake-card-link(href=`/cake/${cake.slug}`) Cake Details
@@ -127,15 +127,15 @@ block append content
         .grid.grid--3-col
           // section cart -1
           .specialCatgory
-            img.occational-cake-img(src='img/occational cake/birthdayCake.jpg' alt='Image of a birthaday cake form our shop')
+            img.occational-cake-img(src='/img/occational cake/birthdayCake.jpg' alt='Image of a birthaday cake form our shop')
             h3.heading-tartiary.center-text Cake for Birthday
           // section cart -2
           .specialCatgory
-            img.occational-cake-img(src='img/occational cake/weadingCake.jpg' alt='Image of a birthaday cake form our shop')
+            img.occational-cake-img(src='/img/occational cake/weadingCake.jpg' alt='Image of a birthaday cake form our shop')
             h3.heading-tartiary.center-text cake for wedding
           // section cart -3
           .specialCatgory
-            img.occational-cake-img(src='img/occational cake/customCake.jpg' alt='Image of a birthaday cake form our shop')
+            img.occational-cake-img(src='/img/occational cake/customCake.jpg' alt='Image of a birthaday cake form our shop')
             h3.heading-tartiary.center-text Custom Cakes
     section#Gallery.testimonial-section
       .container
@@ -144,39 +144,39 @@ block append content
           .grid.gallery-images
             // row-1
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-1.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-1.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-2.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-2.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-3.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-3.jpg' alt='image of a cake form our shop')
             // row-2
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-4.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-4.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-5.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-5.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-6.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-6.jpg' alt='image of a cake form our shop')
             // row-3
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-7.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-7.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-8.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-8.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-9.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-9.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-10.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-10.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-11.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-11.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-12.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-12.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-13.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-13.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-14.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-14.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-15.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-15.jpg' alt='image of a cake form our shop')
             figure.gallery-item
-              img.img-gallery(src='img/gallery/gallery-16.jpg' alt='image of a cake form our shop')
+              img.img-gallery(src='/img/gallery/gallery-16.jpg' alt='image of a cake form our shop')
     section#CTA.section-cta
       .container
         .cta-content-box
