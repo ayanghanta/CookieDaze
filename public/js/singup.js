@@ -22,6 +22,7 @@ if (singupForm) {
   singupForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    document.querySelector('.create_account-btn').textContent = 'Creating account...';
     const form = new FormData();
 
     form.append('name', document.getElementById('user_name').value);
@@ -35,5 +36,6 @@ if (singupForm) {
       form.append('photo', document.getElementById('inp_profile_photo').files[0]);
     }
     await singup(form);
+    document.querySelector('.create_account-btn').textContent = 'Create Account';
   });
 }
