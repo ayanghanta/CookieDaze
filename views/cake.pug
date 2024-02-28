@@ -10,16 +10,17 @@ mixin cakeStat(title,value)
 
 
 mixin reviewCard(review)
-  .review_card
-    .review-header
-      img.review_user-img(src=`/img/users/${review.user.photo}` alt=`user photo of ${review.user.name}`)
-      .review-header--content
-        p.review-user-name= review.user.name
-        .stars
-          each rate in [1,2,3,4,5]
-            svg.rating-star(class=`star-${review.rating>=rate?'active':'inactive'}`)
-              use(xlink:href='/img/ssg.svg#star')
-    p.review-text= review.review
+  if review.user
+    .review_card
+      .review-header
+        img.review_user-img(src=`/img/users/${review.user.photo}` alt=`user photo of ${review.user.name}`)
+        .review-header--content
+          p.review-user-name= review.user.name
+          .stars
+            each rate in [1,2,3,4,5]
+              svg.rating-star(class=`star-${review.rating>=rate?'active':'inactive'}`)
+                use(xlink:href='/img/ssg.svg#star')
+      p.review-text= review.review
 
 
 
@@ -92,6 +93,6 @@ block append content
     section.cake-review-section
       h2.heading-secondary.container Reviews
       .container.review_cards
-        each review in cake.reviews 
+        each review in cake.reviews
           +reviewCard(review)
         //- +reviewCard()
